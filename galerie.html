@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie — Apartmány Jadranka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SVG sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none">
+    <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<!-- ============================================================
+     Navigation
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">Apartmány Jadranka</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-back-link">&#8592; Zpět na úvod</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     Hero
+     ============================================================ -->
+<section class="hero det-hero" style="min-height:40vh">
+  <div class="det-hero-bg" style="background: linear-gradient(180deg, rgba(10,30,50,.5) 0%, rgba(10,30,50,.4) 45%, rgba(10,30,50,.8) 100%), url('photos/house/house-air-view.png') center/cover no-repeat"></div>
+
+  <div class="det-breadcrumb">
+    <a href="index.html">Apartmány Jadranka</a>
+    <span>/</span>
+    <span>Galerie</span>
+  </div>
+
+  <div class="det-hero-content">
+    <h1 class="det-hero-name">Galerie</h1>
+    <p class="det-hero-tagline">Prohlédněte si, jak to u nás vypadá — dům, okolí i místa, která snadno navštívíte.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     Gallery Content
+     ============================================================ -->
+<section style="background: var(--sand-light)">
+  <div class="section-inner">
+
+    <div class="gal-tabs">
+      <a href="#dum" class="gal-tab">Dům</a>
+      <a href="#vybaveni" class="gal-tab">Bazén a pláž</a>
+      <a href="#plaze" class="gal-tab">Pláže v okolí</a>
+      <a href="#pag" class="gal-tab">Ostrov Pag</a>
+      <a href="#vylety" class="gal-tab">Výlety</a>
+    </div>
+
+    <!-- Dům -->
+    <div class="gal-topic" id="dum">
+      <h2 class="gal-topic-title">Dům</h2>
+      <p class="gal-topic-desc">
+        Rodinný dům v Zubovićích stojí přímo nad mořem s přímým přístupem k soukromé pláži.
+        Šest apartmánů, prostorné terasy s výhledem na Jadran a bazén obklopený
+        kamennými terasami — to vše jen pár kroků od vody.
+      </p>
+      <div class="gal-photo-grid">
+        <div class="gal-photo">
+          <img src="photos/house/house-air-view.png" alt="Dům z dronu — pohled na moře" loading="lazy">
+        </div>
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#87CEEB,#4da8b8)">Další fotky připravujeme</div>
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#a8d8e8,#3d8fa0)">Další fotky připravujeme</div>
+      </div>
+    </div>
+
+    <!-- Bazén a pláž -->
+    <div class="gal-topic" id="vybaveni">
+      <h2 class="gal-topic-title">Bazén a pláž</h2>
+      <p class="gal-topic-desc">
+        K domu patří bazén s lehátky a slunečníky, ideální pro odpočinek během horkých letních dnů.
+        Soukromá pláž je přístupná přímo z pozemku — stačí sejít pár schodů a jste u křišťálově čistého moře.
+      </p>
+      <div class="gal-photo-grid">
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#87CEEB,#3d8fa0)">Fotky připravujeme</div>
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#98D8C8,#4da888)">Fotky připravujeme</div>
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#a8d8e8,#5ea8c0)">Fotky připravujeme</div>
+      </div>
+    </div>
+
+    <!-- Pláže v okolí -->
+    <div class="gal-topic" id="plaze">
+      <h2 class="gal-topic-title">Pláže v okolí</h2>
+      <p class="gal-topic-desc">
+        Okolí Zubovićích nabízí desítky pláží — od kamenných zátok s tyrkysovou vodou
+        po písčité pláže s pozvolným vstupem do moře. Většina je dosažitelná pěšky nebo krátkým
+        přejezdem autem. Voda je průzračná a moře čisté po celou sezonu.
+      </p>
+      <div class="gal-photo-grid">
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#98D8C8,#4da888)">Fotky připravujeme</div>
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#87CEEB,#4da8b8)">Fotky připravujeme</div>
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#a8d8e8,#3d8fa0)">Fotky připravujeme</div>
+      </div>
+    </div>
+
+    <!-- Ostrov Pag -->
+    <div class="gal-topic" id="pag">
+      <h2 class="gal-topic-title">Ostrov Pag</h2>
+      <p class="gal-topic-desc">
+        Pag je ostrov kontrastů — měsíční krajina na severu, olivové háje na jihu,
+        historické město Pag s krajkovým dědictvím a slavné solanky. Unikátní atmosféra,
+        pažský sýr, jehněčí pod pekou a 2 700 hodin slunce ročně.
+      </p>
+      <div class="gal-photo-grid">
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#F4C587,#d4945a)">Fotky připravujeme</div>
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#f2d8a8,#c4944a)">Fotky připravujeme</div>
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#e8c898,#b8845a)">Fotky připravujeme</div>
+      </div>
+    </div>
+
+    <!-- Výlety -->
+    <div class="gal-topic" id="vylety">
+      <h2 class="gal-topic-title">Výlety</h2>
+      <p class="gal-topic-desc">
+        Z Jadranky snadno vyrazíte na celodenní plavby na ostrovy Rab, Olib nebo Silba,
+        navštívíte národní park Paklenica nebo se vydáte na výlet do Zadaru.
+        Celý ostrov Pag projdete autem za 40 minut — každý den můžete objevit něco nového.
+      </p>
+      <div class="gal-photo-grid">
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#B8A9C9,#8b6fad)">Fotky připravujeme</div>
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#c8b9d9,#9b7fbd)">Fotky připravujeme</div>
+        <div class="gal-photo-placeholder" style="background: linear-gradient(135deg,#a899b9,#7b5f9d)">Fotky připravujeme</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     Footer
+     ============================================================ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Apartmány Jadranka</div>
+        <div class="footer-address">
+          Zubovići, Ostrov Pag<br>
+          Chorvatsko<br><br>
+          +420 xxx xxx xxx
+        </div>
+      </div>
+      <div>
+        <h4>Ubytování</h4>
+        <a href="apartman-1.html">Apartmán 1 (A1)</a>
+        <a href="#">Oliva (A2)</a>
+        <a href="#">Tramontana (A3)</a>
+        <a href="#">Maestral (A4)</a>
+        <a href="#">Bura (A5)</a>
+        <a href="#">Šalvija (A6)</a>
+      </div>
+      <div>
+        <h4>Užitečné</h4>
+        <a href="galerie.html">Galerie</a>
+        <a href="index.html#doprava">Jak se k nám dostat</a>
+        <a href="index.html#leto">Aktivity na Pagu</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Novinky a volné termíny přímo do schránky.</p>
+        <div class="newsletter-form">
+          <input class="newsletter-input" type="email" placeholder="email">
+          <button class="newsletter-btn">OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>2026 Apartmány Jadranka</span>
+      <span>Vytvořeno s láskou</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Zavřít">&times;</button>
+  <img src="" alt="">
+</div>
+
+<script src="main.js"></script>
+<script>
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = lb.querySelector('img');
+  var lbClose = lb.querySelector('.lightbox-close');
+
+  document.querySelectorAll('.gal-photo img').forEach(function(img) {
+    img.addEventListener('click', function() {
+      lbImg.src = this.src;
+      lbImg.alt = this.alt;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', function(e) {
+    if (e.target === lb) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
+</body>
+</html>

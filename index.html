@@ -1,178 +1,52 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apartmány Jadranka — Zubovići, Pag</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --sand:#f5f0e8;--sand-light:#faf7f2;--stone:#d4cfc5;--sea:#1a6b7a;--sea-deep:#0e4650;--sea-light:#e8f4f6;
-  --terracotta:#c4694a;--terracotta-light:#f8ede8;--olive:#5a6b3c;--ink:#1a1a18;--ink-light:#4a4a45;--white:#ffffff;
-  --font-display:'Cormorant Garamond',Georgia,serif;--font-body:'DM Sans',system-ui,sans-serif;
-}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:var(--font-body);color:var(--ink);background:var(--sand-light);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:all .4s ease}
-.nav.scrolled{background:rgba(245,240,232,.95);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
-.nav-logo{font-family:var(--font-display);font-size:1.5rem;font-weight:300;color:var(--white);letter-spacing:.02em;text-decoration:none;transition:color .4s}
-.nav.scrolled .nav-logo{color:var(--ink)}
-.nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);text-decoration:none;transition:color .3s}
-.nav.scrolled .nav-links a{color:var(--ink-light)}
-.nav-links a:hover{color:var(--terracotta)}
-.nav-cta{background:var(--terracotta)!important;color:var(--white)!important;padding:.6rem 1.4rem;border-radius:2rem;font-size:.75rem!important;letter-spacing:.06em!important;transition:background .3s,transform .2s!important}
-.nav-cta:hover{background:var(--sea-deep)!important;transform:translateY(-1px)}
-
-.hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,40,50,.15) 0%,rgba(10,40,50,.05) 40%,rgba(10,40,50,.55) 100%),linear-gradient(135deg,#1a6b7a 0%,#2a8a9a 25%,#3da5b0 50%,#1a6b7a 75%,#0e4650 100%)}
-.hero-bg::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 25 30 30 Q45 35 60 30' fill='none' stroke='rgba(255,255,255,.06)' stroke-width='1'/%3E%3C/svg%3E") repeat;animation:waves 8s linear infinite}
-@keyframes waves{0%{background-position:0 0}100%{background-position:60px 0}}
-.hero-content{position:relative;z-index:2;padding:0 4rem 5rem;max-width:800px}
-.hero-tag{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
-.hero-tag::before{content:'';width:2rem;height:1px;background:rgba(255,255,255,.4)}
-.hero h1{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,4.5rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:1rem}
-.hero h1 em{font-style:italic;color:rgba(255,255,255,.85)}
-.hero-sub{font-size:1.05rem;font-weight:300;color:rgba(255,255,255,.75);line-height:1.7;max-width:520px;margin-bottom:2rem}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:2.5rem;font-family:var(--font-body);font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all .35s ease}
-.btn-primary{background:var(--terracotta);color:var(--white)}
-.btn-primary:hover{background:#d4775a;transform:translateY(-2px);box-shadow:0 8px 25px rgba(196,105,74,.3)}
-.btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.35)}
-.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
-.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(255,255,255,.5);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;animation:bob 2s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
-.scroll-hint svg{width:18px;height:18px;stroke:rgba(255,255,255,.5)}
-
-.news-bar{background:var(--sea-deep);color:var(--white);padding:.85rem 2rem;text-align:center;font-size:.82rem}
-.news-bar strong{color:var(--terracotta);font-weight:600}
-
-section{padding:6rem 2rem}
-.section-inner{max-width:1100px;margin:0 auto}
-.section-tag{font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--terracotta);margin-bottom:.75rem}
-.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--ink);line-height:1.15;margin-bottom:1.5rem}
-.section-title em{font-style:italic;color:var(--sea)}
-.section-desc{font-size:.95rem;font-weight:300;color:var(--ink-light);line-height:1.8;max-width:600px}
-
-.apartments{background:var(--sand)}
-.apt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem}
-.apt-card{background:var(--white);border-radius:1rem;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease;cursor:pointer}
-.apt-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.08)}
-.apt-img{height:220px;position:relative;overflow:hidden}
-.apt-img-inner{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .6s ease}
-.apt-card:hover .apt-img-inner{transform:scale(1.05)}
-.apt-badge{position:absolute;top:1rem;left:1rem;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:.35rem .85rem;border-radius:1.5rem;font-size:.7rem;font-weight:600;color:var(--sea-deep)}
-.apt-body{padding:1.5rem}
-.apt-name{font-family:var(--font-display);font-size:1.5rem;font-weight:400;margin-bottom:.5rem}
-.apt-meta{display:flex;gap:1.25rem;margin-bottom:1rem;flex-wrap:wrap}
-.apt-meta span{font-size:.78rem;color:var(--ink-light);display:flex;align-items:center;gap:.35rem}
-.apt-meta svg{width:14px;height:14px;stroke:var(--sea);stroke-width:1.5}
-.apt-price{font-size:.85rem;color:var(--terracotta);font-weight:500}
-.apt-price span{font-family:var(--font-display);font-size:1.3rem;font-weight:600}
-.apt-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.75rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--sea);text-decoration:none;transition:gap .3s}
-.apt-link:hover{gap:.7rem}
-.apt-link svg{width:14px;height:14px;stroke:currentColor;stroke-width:2}
-
-.calendar-section{background:var(--white)}
-.cal-preview{margin-top:2.5rem;background:var(--sand-light);border-radius:1rem;padding:2.5rem;border:1px solid var(--stone)}
-.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
-.cal-month{font-family:var(--font-display);font-size:1.5rem;font-weight:400}
-.cal-nav{display:flex;gap:.5rem}
-.cal-nav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--stone);background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.cal-nav button:hover{border-color:var(--sea);color:var(--sea)}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
-.cal-day-name{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);padding:.5rem 0}
-.cal-day{aspect-ratio:1.2;display:flex;align-items:center;justify-content:center;border-radius:.5rem;font-size:.85rem;transition:all .2s;cursor:pointer}
-.cal-day:hover{background:var(--sea-light)}
-.cal-day.available{color:var(--ink);background:var(--white)}
-.cal-day.booked{color:var(--ink-light);background:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(196,105,74,.08) 3px,rgba(196,105,74,.08) 6px);cursor:default;opacity:.5}
-.cal-day.empty{cursor:default}
-.cal-legend{display:flex;gap:1.5rem;margin-top:1.5rem;justify-content:center}
-.cal-legend-item{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--ink-light)}
-.cal-legend-dot{width:12px;height:12px;border-radius:3px}
-
-.about{background:var(--sand-light)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:2.5rem}
-.about-portrait{aspect-ratio:4/5;border-radius:1rem;background:linear-gradient(135deg,var(--sea-light),var(--stone))}
-.about-quote{font-family:var(--font-display);font-size:1.35rem;font-style:italic;color:var(--sea-deep);line-height:1.6;margin-bottom:1.5rem;padding-left:1.5rem;border-left:2px solid var(--terracotta)}
-.about-text{font-size:.9rem;color:var(--ink-light);line-height:1.8}
-.about-sig{font-family:var(--font-display);font-size:1.2rem;font-style:italic;color:var(--terracotta);margin-top:1.25rem}
-
-.summer{background:linear-gradient(180deg,var(--sand-light) 0%,var(--terracotta-light) 100%)}
-.activities{background:var(--white)}
-.act-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5rem;margin-top:3rem}
-.act-card-link{text-decoration:none;color:inherit;display:block}
-.act-card-link .act-card{height:100%}
-.act-card{padding:2rem;border-radius:1rem;background:var(--sand-light);border:1px solid transparent;transition:all .3s;cursor:pointer}
-.act-card:hover{border-color:var(--sea);transform:translateY(-3px)}
-.act-icon{width:48px;height:48px;border-radius:50%;background:var(--sea-light);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;font-size:1.3rem}
-.act-card h3{font-family:var(--font-display);font-size:1.25rem;font-weight:400;margin-bottom:.5rem}
-.act-card p{font-size:.82rem;color:var(--ink-light);line-height:1.7}
-.act-tag{display:inline-block;margin-top:.75rem;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sea);background:var(--sea-light);padding:.25rem .6rem;border-radius:1rem}
-
-.reviews{background:var(--sand)}
-.reviews-scroll{display:flex;gap:1.5rem;margin-top:2.5rem;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:1rem}
-.review-card{min-width:300px;max-width:380px;background:var(--white);border-radius:1rem;padding:2rem;scroll-snap-align:start;flex-shrink:0}
-.review-stars{color:#f0b429;font-size:.9rem;margin-bottom:.75rem;letter-spacing:2px}
-.review-text{font-size:.88rem;color:var(--ink-light);line-height:1.7;font-style:italic;margin-bottom:1rem}
-.review-author{font-size:.78rem;font-weight:600;color:var(--ink)}
-.review-date{font-size:.72rem;color:var(--stone)}
-
-.transport{background:var(--white)}
-.transport-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2.5rem}
-.transport-card{padding:2rem;border-radius:1rem;border:1px solid var(--stone);transition:border-color .3s}
-.transport-card:hover{border-color:var(--sea)}
-.transport-card h3{font-family:var(--font-display);font-size:1.2rem;margin-bottom:.75rem}
-.transport-card p{font-size:.85rem;color:var(--ink-light);line-height:1.7}
-
-.cta-section{background:linear-gradient(135deg,var(--sea-deep) 0%,var(--sea) 100%);padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
-.cta-section .section-title{color:var(--white)}
-.cta-section .section-title em{color:rgba(255,255,255,.7)}
-.cta-section .section-desc{color:rgba(255,255,255,.7);margin:0 auto 2rem}
-
-footer{background:var(--ink);color:rgba(255,255,255,.6);padding:4rem 2rem 2rem}
-.footer-inner{max-width:1100px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
-.footer-brand{font-family:var(--font-display);font-size:1.5rem;font-weight:300;color:var(--white);margin-bottom:1rem}
-.footer-address{font-size:.82rem;line-height:1.8}
-footer h4{font-size:.65rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
-footer a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.82rem;transition:color .2s;display:block;padding:.25rem 0}
-footer a:hover{color:var(--terracotta)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;font-size:.72rem}
-
-@media(max-width:768px){
-  .nav-links{display:none}
-  .hero-content{padding:0 1.5rem 4rem}
-  section{padding:4rem 1.5rem}
-  .about-grid{grid-template-columns:1fr;gap:2rem}
-  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
-  .cal-preview{padding:1.5rem}
-  .apt-grid{grid-template-columns:1fr}
-}
-.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-.stagger-1{transition-delay:.1s}.stagger-2{transition-delay:.2s}.stagger-3{transition-delay:.3s}.stagger-4{transition-delay:.4s}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartmány Jadranka — Zubovići, Pag</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- SVG sprite — hidden, referenced via <use href="#icon-..."> -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-people" viewBox="0 0 24 24" fill="none">
+    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round"/>
+    <circle cx="9" cy="7" r="4"/>
+  </symbol>
+  <symbol id="icon-area" viewBox="0 0 24 24" fill="none">
+    <rect x="3" y="3" width="18" height="18" rx="2"/>
+    <path d="M3 9h18M9 21V9"/>
+  </symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none">
+    <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-arrow-down" viewBox="0 0 24 24" fill="none">
+    <path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<!-- ============================================================
+     Navigation
+     ============================================================ -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">Apartmány Jadranka</a>
   <div class="nav-links">
     <a href="#ubytovani">Ubytování</a>
-    <a href="#kalendar">Dostupnost</a>
+    <a href="#galerie">Galerie</a>
     <a href="#leto">Léto</a>
     <a href="#aktivity">Mimo sezónu</a>
     <a href="#doprava">Doprava</a>
     <a href="#o-nas">O nás</a>
-    <a href="#kalendar" class="nav-cta">Volné termíny</a>
+    <a href="#ubytovani" class="nav-cta">Volné termíny</a>
   </div>
 </nav>
 
+<!-- ============================================================
+     Hero
+     ============================================================ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -180,15 +54,25 @@ footer a:hover{color:var(--terracotta)}
     <h1>Váš klidný kout<br>na <em>Jadranu</em></h1>
     <p class="hero-sub">Rodinné apartmány s výhledem na moře, pár kroků od pláže. Od dubna do října — nejen v sezoně.</p>
     <div class="hero-actions">
-      <a href="#kalendar" class="btn btn-primary">Podívat se na volné termíny</a>
+      <a href="#galerie" class="btn btn-primary">Prohlédnout galerii</a>
       <a href="#ubytovani" class="btn btn-ghost">Prohlédnout apartmány</a>
     </div>
   </div>
-  <div class="scroll-hint"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div class="scroll-hint">
+    <svg><use href="#icon-arrow-down"/></svg>
+  </div>
 </section>
 
-<div class="news-bar"><strong>Novinka:</strong> Poslední volné termíny v červenci! Rezervujte si místo včas.</div>
+<!-- ============================================================
+     News Bar
+     ============================================================ -->
+<div class="news-bar">
+  <strong>Novinka:</strong> Poslední volné termíny v červenci! Rezervujte si místo včas.
+</div>
 
+<!-- ============================================================
+     Apartments
+     ============================================================ -->
 <section class="apartments" id="ubytovani">
   <div class="section-inner">
     <div class="section-tag">Ubytování</div>
@@ -196,63 +80,105 @@ footer a:hover{color:var(--terracotta)}
     <p class="section-desc fade-in stagger-1">Každý apartmán je plně vybavený, s vlastní kuchyní, koupelnou a terasou. Parkování přímo u domu.</p>
     <div class="apt-grid">
 
-      <div class="apt-card fade-in stagger-1">
-        <div class="apt-img"><div class="apt-img-inner" style="background:linear-gradient(135deg,#87CEEB,#4da8b8)"></div><div class="apt-badge">A1</div></div>
-        <div class="apt-body">
-          <h3 class="apt-name">Apartmán Lavanda</h3>
-          <div class="apt-meta"><span><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round"/><circle cx="9" cy="7" r="4"/></svg> 2-4 osoby</span><span><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> 45 m2</span></div>
-          <div class="apt-price">od <span>55 EUR</span> / noc</div>
-          <a href="#" class="apt-link">Detail <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="apartman-1.html" class="apt-card fade-in stagger-1">
+        <div class="apt-img">
+          <div class="apt-img-inner" style="background: url('photos/apartment-1/apartment-1-outside.png') center/cover, linear-gradient(135deg,#87CEEB,#4da8b8)"></div>
+          <div class="apt-badge">A1</div>
         </div>
-      </div>
+        <div class="apt-body">
+          <div class="apt-number">Apartmán 1</div>
+          <h3 class="apt-name">Přízemní apartmán s terasou</h3>
+          <div class="apt-meta">
+            <span><svg class="apt-meta-icon"><use href="#icon-people"/></svg> 2–4 osoby</span>
+            <span><svg class="apt-meta-icon"><use href="#icon-area"/></svg> 36 m²</span>
+          </div>
+          <div class="apt-price">od <span>90 EUR</span> / noc</div>
+          <div class="apt-link">Detail <svg><use href="#icon-arrow-right"/></svg></div>
+        </div>
+      </a>
 
       <div class="apt-card fade-in stagger-2">
-        <div class="apt-img"><div class="apt-img-inner" style="background:linear-gradient(135deg,#98D8C8,#4da888)"></div><div class="apt-badge">A2</div></div>
+        <div class="apt-img">
+          <div class="apt-img-inner" style="background: url('photos/apartment-2/apartment-2-window.png') center/cover, linear-gradient(135deg,#87CEEB,#4da8b8)"></div>
+          <div class="apt-badge">A2</div>
+        </div>
         <div class="apt-body">
-          <h3 class="apt-name">Apartmán Oliva</h3>
-          <div class="apt-meta"><span><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round"/><circle cx="9" cy="7" r="4"/></svg> 2-3 osoby</span><span><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> 35 m2</span></div>
-          <div class="apt-price">od <span>45 EUR</span> / noc</div>
-          <a href="#" class="apt-link">Detail <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="apt-number">Apartmán 2</div>
+          <h3 class="apt-name">Komfortní přízemní apartmán</h3>
+          <div class="apt-meta">
+            <span><svg class="apt-meta-icon"><use href="#icon-people"/></svg> 2–3 osoby</span>
+            <span><svg class="apt-meta-icon"><use href="#icon-area"/></svg> 35 m²</span>
+          </div>
+          <div class="apt-price">od <span>90 EUR</span> / noc</div>
+          <a href="#" class="apt-link">Detail <svg><use href="#icon-arrow-right"/></svg></a>
         </div>
       </div>
 
       <div class="apt-card fade-in stagger-3">
-        <div class="apt-img"><div class="apt-img-inner" style="background:linear-gradient(135deg,#F4C587,#d4945a)"></div><div class="apt-badge">A3</div></div>
+        <div class="apt-img">
+          <div class="apt-img-inner" style="background: linear-gradient(135deg,#F4C587,#d4945a)"></div>
+          <div class="apt-badge">A3</div>
+        </div>
         <div class="apt-body">
-          <h3 class="apt-name">Apartmán Tramontana</h3>
-          <div class="apt-meta"><span><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round"/><circle cx="9" cy="7" r="4"/></svg> 4-6 osob</span><span><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> 60 m2</span></div>
+          <div class="apt-number">Apartmán 3</div>
+          <h3 class="apt-name">Velký rodinný apartmán</h3>
+          <div class="apt-meta">
+            <span><svg class="apt-meta-icon"><use href="#icon-people"/></svg> 4–6 osob</span>
+            <span><svg class="apt-meta-icon"><use href="#icon-area"/></svg> 60 m²</span>
+          </div>
           <div class="apt-price">od <span>70 EUR</span> / noc</div>
-          <a href="#" class="apt-link">Detail <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#" class="apt-link">Detail <svg><use href="#icon-arrow-right"/></svg></a>
         </div>
       </div>
 
       <div class="apt-card fade-in stagger-4">
-        <div class="apt-img"><div class="apt-img-inner" style="background:linear-gradient(135deg,#B8A9C9,#8b6fad)"></div><div class="apt-badge">A4</div></div>
+        <div class="apt-img">
+          <div class="apt-img-inner" style="background: linear-gradient(135deg,#B8A9C9,#8b6fad)"></div>
+          <div class="apt-badge">A4</div>
+        </div>
         <div class="apt-body">
-          <h3 class="apt-name">Apartmán Maestral</h3>
-          <div class="apt-meta"><span><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round"/><circle cx="9" cy="7" r="4"/></svg> 2-3 osoby</span><span><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> 40 m2</span></div>
+          <div class="apt-number">Apartmán 4</div>
+          <h3 class="apt-name">Apartmán v patře s výhledem</h3>
+          <div class="apt-meta">
+            <span><svg class="apt-meta-icon"><use href="#icon-people"/></svg> 2–3 osoby</span>
+            <span><svg class="apt-meta-icon"><use href="#icon-area"/></svg> 40 m²</span>
+          </div>
           <div class="apt-price">od <span>50 EUR</span> / noc</div>
-          <a href="#" class="apt-link">Detail <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#" class="apt-link">Detail <svg><use href="#icon-arrow-right"/></svg></a>
         </div>
       </div>
 
       <div class="apt-card fade-in stagger-1">
-        <div class="apt-img"><div class="apt-img-inner" style="background:linear-gradient(135deg,#A8D5BA,#5ea87a)"></div><div class="apt-badge">A5</div></div>
+        <div class="apt-img">
+          <div class="apt-img-inner" style="background: linear-gradient(135deg,#A8D5BA,#5ea87a)"></div>
+          <div class="apt-badge">A5</div>
+        </div>
         <div class="apt-body">
-          <h3 class="apt-name">Apartmán Bura</h3>
-          <div class="apt-meta"><span><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round"/><circle cx="9" cy="7" r="4"/></svg> 4-5 osob</span><span><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> 55 m2</span></div>
+          <div class="apt-number">Apartmán 5</div>
+          <h3 class="apt-name">Apartmán v patře s výhledem</h3>
+          <div class="apt-meta">
+            <span><svg class="apt-meta-icon"><use href="#icon-people"/></svg> 4–5 osob</span>
+            <span><svg class="apt-meta-icon"><use href="#icon-area"/></svg> 55 m²</span>
+          </div>
           <div class="apt-price">od <span>65 EUR</span> / noc</div>
-          <a href="#" class="apt-link">Detail <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#" class="apt-link">Detail <svg><use href="#icon-arrow-right"/></svg></a>
         </div>
       </div>
 
       <div class="apt-card fade-in stagger-2">
-        <div class="apt-img"><div class="apt-img-inner" style="background:linear-gradient(135deg,#F2B880,#d48a4a)"></div><div class="apt-badge">A6</div></div>
+        <div class="apt-img">
+          <div class="apt-img-inner" style="background: linear-gradient(135deg,#F2B880,#d48a4a)"></div>
+          <div class="apt-badge">A6</div>
+        </div>
         <div class="apt-body">
-          <h3 class="apt-name">Apartmán Šalvija</h3>
-          <div class="apt-meta"><span><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round"/><circle cx="9" cy="7" r="4"/></svg> 2-4 osoby</span><span><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> 42 m2</span></div>
+          <div class="apt-number">Apartmán 6</div>
+          <h3 class="apt-name">Útulný pokoj s kuchyní</h3>
+          <div class="apt-meta">
+            <span><svg class="apt-meta-icon"><use href="#icon-people"/></svg> 2–4 osoby</span>
+            <span><svg class="apt-meta-icon"><use href="#icon-area"/></svg> 42 m²</span>
+          </div>
           <div class="apt-price">od <span>52 EUR</span> / noc</div>
-          <a href="#" class="apt-link">Detail <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#" class="apt-link">Detail <svg><use href="#icon-arrow-right"/></svg></a>
         </div>
       </div>
 
@@ -260,39 +186,63 @@ footer a:hover{color:var(--terracotta)}
   </div>
 </section>
 
-<section class="calendar-section" id="kalendar">
+<!-- ============================================================
+     Gallery
+     ============================================================ -->
+<section class="gallery-section" id="galerie">
   <div class="section-inner">
-    <div class="section-tag">Dostupnost</div>
-    <h2 class="section-title fade-in">Vyberte si <em>termín</em></h2>
-    <p class="section-desc fade-in stagger-1">Přehledný kalendář obsazenosti. Klikněte na volný termín a pošleme vám nabídku do 24 hodin.</p>
-    <div class="cal-preview fade-in stagger-2">
-      <div class="cal-header">
-        <div class="cal-month">Červenec 2026</div>
-        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
-          <select style="padding:.4rem .8rem;border:1px solid var(--stone);border-radius:.5rem;font-family:var(--font-body);font-size:.8rem;background:var(--white);cursor:pointer">
-            <option>Všechny apartmány</option>
-            <option>Lavanda (A1)</option><option>Oliva (A2)</option><option>Tramontana (A3)</option>
-            <option>Maestral (A4)</option><option>Bura (A5)</option><option>Šalvija (A6)</option>
-          </select>
-          <div class="cal-nav"><button>&#8249;</button><button>&#8250;</button></div>
+    <div class="section-tag">Galerie</div>
+    <h2 class="section-title fade-in">Podívejte se, jak to u nás <em>vypadá</em></h2>
+    <p class="section-desc fade-in stagger-1">Prohlédněte si fotky domu, okolí i míst, která z Jadranky snadno navštívíte.</p>
+    <div class="gallery-grid">
+
+      <a href="galerie.html#dum" class="gallery-card fade-in stagger-1">
+        <div class="gallery-card-img" style="background: url('photos/house/house-air-view.png') center/cover no-repeat"></div>
+        <div class="gallery-card-overlay">
+          <h3 class="gallery-card-title">Dům</h3>
+          <span class="gallery-card-count">Prohlédnout &#8594;</span>
         </div>
-      </div>
-      <div class="cal-grid">
-        <div class="cal-day-name">Po</div><div class="cal-day-name">Út</div><div class="cal-day-name">St</div><div class="cal-day-name">Čt</div><div class="cal-day-name">Pá</div><div class="cal-day-name">So</div><div class="cal-day-name">Ne</div>
-        <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day available">1</div><div class="cal-day available">2</div><div class="cal-day available">3</div><div class="cal-day booked">4</div><div class="cal-day booked">5</div>
-        <div class="cal-day booked">6</div><div class="cal-day booked">7</div><div class="cal-day booked">8</div><div class="cal-day booked">9</div><div class="cal-day booked">10</div><div class="cal-day booked">11</div><div class="cal-day available">12</div>
-        <div class="cal-day available">13</div><div class="cal-day available">14</div><div class="cal-day available">15</div><div class="cal-day available">16</div><div class="cal-day booked">17</div><div class="cal-day booked">18</div><div class="cal-day booked">19</div>
-        <div class="cal-day booked">20</div><div class="cal-day booked">21</div><div class="cal-day booked">22</div><div class="cal-day booked">23</div><div class="cal-day booked">24</div><div class="cal-day booked">25</div><div class="cal-day booked">26</div>
-        <div class="cal-day available">27</div><div class="cal-day available">28</div><div class="cal-day available">29</div><div class="cal-day available">30</div><div class="cal-day available">31</div>
-      </div>
-      <div class="cal-legend">
-        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--white);border:1px solid var(--stone)"></div> Volné</div>
-        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(196,105,74,.15) 2px,rgba(196,105,74,.15) 4px)"></div> Obsazeno</div>
-      </div>
+      </a>
+
+      <a href="galerie.html#vybaveni" class="gallery-card fade-in stagger-2">
+        <div class="gallery-card-img" style="background: linear-gradient(135deg,#87CEEB,#3d8fa0)"></div>
+        <div class="gallery-card-overlay">
+          <h3 class="gallery-card-title">Bazén a pláž</h3>
+          <span class="gallery-card-count">Prohlédnout &#8594;</span>
+        </div>
+      </a>
+
+      <a href="galerie.html#plaze" class="gallery-card fade-in stagger-3">
+        <div class="gallery-card-img" style="background: linear-gradient(135deg,#98D8C8,#4da888)"></div>
+        <div class="gallery-card-overlay">
+          <h3 class="gallery-card-title">Pláže v okolí</h3>
+          <span class="gallery-card-count">Prohlédnout &#8594;</span>
+        </div>
+      </a>
+
+      <a href="galerie.html#pag" class="gallery-card fade-in stagger-4">
+        <div class="gallery-card-img" style="background: linear-gradient(135deg,#F4C587,#d4945a)"></div>
+        <div class="gallery-card-overlay">
+          <h3 class="gallery-card-title">Ostrov Pag</h3>
+          <span class="gallery-card-count">Prohlédnout &#8594;</span>
+        </div>
+      </a>
+
+      <a href="galerie.html#vylety" class="gallery-card fade-in stagger-1">
+        <div class="gallery-card-img" style="background: linear-gradient(135deg,#B8A9C9,#8b6fad)"></div>
+        <div class="gallery-card-overlay">
+          <h3 class="gallery-card-title">Výlety</h3>
+          <span class="gallery-card-count">Prohlédnout &#8594;</span>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     About
+     ============================================================ -->
 <section class="about" id="o-nas">
   <div class="section-inner">
     <div class="section-tag">Náš příběh</div>
@@ -302,75 +252,105 @@ footer a:hover{color:var(--terracotta)}
       <div class="fade-in stagger-2">
         <blockquote class="about-quote">Jezdili jsme do Zubovići jako hosté, zamilovali jsme se a teď vás tu vítáme jako majitelé.</blockquote>
         <p class="about-text">Jsme Hana a Ondra. Ostrov Pag jsme objevili náhodou před lety a od té doby se sem vracíme každý rok. Když se naskytla příležitost koupit dům u moře, neváhali jsme. Dnes nabízíme šest útulných apartmánů s veškerým komfortem a osobním přístupem, který větší hotely nenabídnou.</p>
-        <p class="about-text" style="margin-top:.75rem">Rádi vám poradíme s výlety, ukážeme skryté pláže a doporučíme nejlepší konoba v okolí.</p>
+        <p class="about-text">Rádi vám poradíme s výlety, ukážeme skryté pláže a doporučíme nejlepší konoba v okolí.</p>
         <div class="about-sig">— Hana a Ondra</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     Summer Activities
+     ============================================================ -->
 <section class="summer" id="leto">
   <div class="section-inner">
-    <div class="section-tag">Červen - Září</div>
+    <div class="section-tag">Červen – Září</div>
     <h2 class="section-title fade-in">Léto na <em>Pagu</em></h2>
     <p class="section-desc fade-in stagger-1">Křišťálové moře, kamenité pláže a 2 700 hodin slunce ročně. Zubovići jsou klidná alternativa k turistickému ruchu Novalji — a přitom je vše na dosah.</p>
-    <div class="act-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+    <div class="act-grid">
 
-      <a href="#" class="act-card-link fade-in stagger-1"><div class="act-card">
-        <div class="act-icon">🏖️</div><h3>Pláže</h3>
-        <p>Oblázkové i písčité pláže 3 minuty pěšky. Čisté moře s pozvolným vstupem, ideální i pro rodiny s dětmi.</p>
-        <span class="act-tag">Pláže v okolí &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-1">
+        <div class="act-card">
+          <div class="act-icon">🏖️</div>
+          <h3>Pláže</h3>
+          <p>Oblázkové i písčité pláže 3 minuty pěšky. Čisté moře s pozvolným vstupem, ideální i pro rodiny s dětmi.</p>
+          <span class="act-tag">Pláže v okolí &#8594;</span>
+        </div>
+      </a>
 
-      <a href="#" class="act-card-link fade-in stagger-2"><div class="act-card">
-        <div class="act-icon">🍽️</div><h3>Gastronomie</h3>
-        <p>Pažský sýr, jehněčí pod pekou, čerstvé ryby. Konoba přímo v Zubovićích i v blízké Novalji a městě Pag.</p>
-        <span class="act-tag">Kde se najíst &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-2">
+        <div class="act-card">
+          <div class="act-icon">🍽️</div>
+          <h3>Gastronomie</h3>
+          <p>Pažský sýr, jehněčí pod pekou, čerstvé ryby. Konoba přímo v Zubovićích i v blízké Novalji a městě Pag.</p>
+          <span class="act-tag">Kde se najíst &#8594;</span>
+        </div>
+      </a>
 
-      <a href="#" class="act-card-link fade-in stagger-3"><div class="act-card">
-        <div class="act-icon">⛵</div><h3>Výlety lodí</h3>
-        <p>Celodenní plavby na ostrovy Rab, Olib a Silba. Pronájem loděk i organizované výlety z přístavu Novalja.</p>
-        <span class="act-tag">Lodní výlety &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-3">
+        <div class="act-card">
+          <div class="act-icon">⛵</div>
+          <h3>Výlety lodí</h3>
+          <p>Celodenní plavby na ostrovy Rab, Olib a Silba. Pronájem loděk i organizované výlety z přístavu Novalja.</p>
+          <span class="act-tag">Lodní výlety &#8594;</span>
+        </div>
+      </a>
 
-      <a href="#" class="act-card-link fade-in stagger-4"><div class="act-card">
-        <div class="act-icon">🤿</div><h3>Potápění</h3>
-        <p>Průzračná voda s viditelností přes 20 metrů. Podmořské jeskyně, korály a bohatý mořský život podél pobřeží.</p>
-        <span class="act-tag">Potápěčské lokality &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-4">
+        <div class="act-card">
+          <div class="act-icon">🤿</div>
+          <h3>Potápění</h3>
+          <p>Průzračná voda s viditelností přes 20 metrů. Podmořské jeskyně, korály a bohatý mořský život podél pobřeží.</p>
+          <span class="act-tag">Potápěčské lokality &#8594;</span>
+        </div>
+      </a>
 
-      <a href="#" class="act-card-link fade-in stagger-1"><div class="act-card">
-        <div class="act-icon">🏛️</div><h3>Město Pag a solanky</h3>
-        <p>Historické město s krajkovým dědictvím a staletými solankami. Kamenné uličky a unikátní atmosféra. 20 min autem.</p>
-        <span class="act-tag">Co navštívit &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-1">
+        <div class="act-card">
+          <div class="act-icon">🏛️</div>
+          <h3>Město Pag a solanky</h3>
+          <p>Historické město s krajkovým dědictvím a staletými solankami. Kamenné uličky a unikátní atmosféra. 20 min autem.</p>
+          <span class="act-tag">Co navštívit &#8594;</span>
+        </div>
+      </a>
 
-      <a href="#" class="act-card-link fade-in stagger-2"><div class="act-card">
-        <div class="act-icon">🌅</div><h3>Klid a odpočinek</h3>
-        <p>Zubovići jsou stranou od party scény Zrće. Letní atmosféra bez ruchu — jen moře, slunce a šumění vln.</p>
-        <span class="act-tag">Proč Zubovići &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-2">
+        <div class="act-card">
+          <div class="act-icon">🌅</div>
+          <h3>Klid a odpočinek</h3>
+          <p>Zubovići jsou stranou od party scény Zrće. Letní atmosféra bez ruchu — jen moře, slunce a šumění vln.</p>
+          <span class="act-tag">Proč Zubovići &#8594;</span>
+        </div>
+      </a>
 
-      <a href="#" class="act-card-link fade-in stagger-3"><div class="act-card">
-        <div class="act-icon">🧒</div><h3>Pro rodiny s dětmi</h3>
-        <p>Bezpečné mělké pláže, dětská hřiště v Novalji, aquapark a zmrzlinárny. Ideální pro rodinnou dovolenou.</p>
-        <span class="act-tag">Tipy pro rodiny &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-3">
+        <div class="act-card">
+          <div class="act-icon">🧒</div>
+          <h3>Pro rodiny s dětmi</h3>
+          <p>Bezpečné mělké pláže, dětská hřiště v Novalji, aquapark a zmrzlinárny. Ideální pro rodinnou dovolenou.</p>
+          <span class="act-tag">Tipy pro rodiny &#8594;</span>
+        </div>
+      </a>
 
-      <a href="#" class="act-card-link fade-in stagger-4"><div class="act-card">
-        <div class="act-icon">🚐</div><h3>Výlety po ostrově</h3>
-        <p>Měsíční krajina severu, olivové háje jihu, maják Stara Novalja. Celý ostrov projdete autem za 40 minut.</p>
-        <span class="act-tag">Kam na výlet &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-4">
+        <div class="act-card">
+          <div class="act-icon">🚐</div>
+          <h3>Výlety po ostrově</h3>
+          <p>Měsíční krajina severu, olivové háje jihu, maják Stara Novalja. Celý ostrov projdete autem za 40 minut.</p>
+          <span class="act-tag">Kam na výlet &#8594;</span>
+        </div>
+      </a>
 
     </div>
     <div class="fade-in stagger-2" style="text-align:center;margin-top:2.5rem">
-      <a href="#kalendar" class="btn btn-primary">Najít volný letní termín</a>
+      <a href="#galerie" class="btn btn-primary">Prohlédnout galerii</a>
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     Off-season Activities
+     ============================================================ -->
 <section class="activities" id="aktivity">
   <div class="section-inner">
     <div class="section-tag">Mimo hlavní sezónu</div>
@@ -378,117 +358,165 @@ footer a:hover{color:var(--terracotta)}
     <p class="section-desc fade-in stagger-1">Koupání od dubna do října, klidné pláže bez davů a krajina jako z Marsu. Ideální pro cyklisty, turisty i rybáře.</p>
     <div class="act-grid">
 
-      <a href="#" class="act-card-link fade-in stagger-1"><div class="act-card">
-        <div class="act-icon">🚴</div><h3>Cyklistika</h3>
-        <p>Desítky kilometrů cyklotras podél pobřeží i vnitrozemím. Cesty pro silniční i horská kola s úchvatnými výhledy.</p>
-        <span class="act-tag">Cyklotrasy na Pagu &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-1">
+        <div class="act-card">
+          <div class="act-icon">🚴</div>
+          <h3>Cyklistika</h3>
+          <p>Desítky kilometrů cyklotras podél pobřeží i vnitrozemím. Cesty pro silniční i horská kola s úchvatnými výhledy.</p>
+          <span class="act-tag">Cyklotrasy na Pagu &#8594;</span>
+        </div>
+      </a>
 
-      <a href="#" class="act-card-link fade-in stagger-2"><div class="act-card">
-        <div class="act-icon">🏃</div><h3>Life on Mars</h3>
-        <p>Kultovní trail running závod měsíční krajinou ostrova Pag. Poslední sobota v březnu. Rezervujte ubytování včas!</p>
-        <span class="act-tag">O závodu &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-2">
+        <div class="act-card">
+          <div class="act-icon">🏃</div>
+          <h3>Life on Mars</h3>
+          <p>Kultovní trail running závod měsíční krajinou ostrova Pag. Poslední sobota v březnu. Rezervujte ubytování včas!</p>
+          <span class="act-tag">O závodu &#8594;</span>
+        </div>
+      </a>
 
-      <a href="#" class="act-card-link fade-in stagger-3"><div class="act-card">
-        <div class="act-icon">🎣</div><h3>Rybaření</h3>
-        <p>Rybolov z pobřeží i z lodi. Klidné zátoky pro odpočinek s prutem v ruce — ideální kombinace moře a trpělivosti.</p>
-        <span class="act-tag">Rybaření na Pagu &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-3">
+        <div class="act-card">
+          <div class="act-icon">🎣</div>
+          <h3>Rybaření</h3>
+          <p>Rybolov z pobřeží i z lodi. Klidné zátoky pro odpočinek s prutem v ruce — ideální kombinace moře a trpělivosti.</p>
+          <span class="act-tag">Rybaření na Pagu &#8594;</span>
+        </div>
+      </a>
 
-      <a href="#" class="act-card-link fade-in stagger-4"><div class="act-card">
-        <div class="act-icon">🥾</div><h3>Pěší turistika</h3>
-        <p>Stezky podél útesů, výhledy na Velebit a skryté pláže přístupné pouze pěšky. Krajina, kterou musíte zažít.</p>
-        <span class="act-tag">Turistické trasy &#8594;</span>
-      </div></a>
+      <a href="#" class="act-card-link fade-in stagger-4">
+        <div class="act-card">
+          <div class="act-icon">🥾</div>
+          <h3>Pěší turistika</h3>
+          <p>Stezky podél útesů, výhledy na Velebit a skryté pláže přístupné pouze pěšky. Krajina, kterou musíte zažít.</p>
+          <span class="act-tag">Turistické trasy &#8594;</span>
+        </div>
+      </a>
 
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     Reviews
+     ============================================================ -->
 <section class="reviews" id="recenze">
   <div class="section-inner">
     <div class="section-tag">Co říkají hosté</div>
     <h2 class="section-title fade-in">Hodnocení z <em>Google Maps</em></h2>
     <div class="reviews-scroll">
+
       <div class="review-card fade-in stagger-1">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="review-text">Krásné apartmány s výhledem na moře. Majitelé jsou úžasní, vždy poradí s výlety. Vrátíme se!</p>
-        <div class="review-author">Martin K.</div><div class="review-date">Srpen 2025</div>
+        <div class="review-author">Martin K.</div>
+        <div class="review-date">Srpen 2025</div>
       </div>
+
       <div class="review-card fade-in stagger-2">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="review-text">Perfektní místo pro rodinu s dětmi. Pláž 3 minuty, klid, čisté moře. Apartmán skvěle vybavený.</p>
-        <div class="review-author">Jana P.</div><div class="review-date">Červenec 2025</div>
+        <div class="review-author">Jana P.</div>
+        <div class="review-date">Červenec 2025</div>
       </div>
+
       <div class="review-card fade-in stagger-3">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="review-text">Byli jsme na Pagu poprvé mimo sezonu — v dubnu. Fantastické počasí, skoro žádní turisté a ceny O.K.</p>
-        <div class="review-author">Tomáš R.</div><div class="review-date">Duben 2025</div>
+        <div class="review-author">Tomáš R.</div>
+        <div class="review-date">Duben 2025</div>
       </div>
+
       <div class="review-card fade-in stagger-4">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="review-text">Jeli jsme na Life on Mars závod a ubytování u Jadranky bylo skvělé zázemí. Doporučuji i pro sportovce.</p>
-        <div class="review-author">Petr V.</div><div class="review-date">Březen 2025</div>
+        <div class="review-author">Petr V.</div>
+        <div class="review-date">Březen 2025</div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     Transport
+     ============================================================ -->
 <section class="transport" id="doprava">
   <div class="section-inner">
     <div class="section-tag">Doprava</div>
     <h2 class="section-title fade-in">Jak se k nám <em>dostat</em></h2>
     <div class="transport-grid">
+
       <div class="transport-card fade-in stagger-1">
         <h3>Autem</h3>
         <p>Z Prahy cca 10 hodin přes Slovinsko. Dálniční poplatky v Chorvatsku přes ENC. Most na Pag je zdarma. Parkování přímo u domu.</p>
       </div>
+
       <div class="transport-card fade-in stagger-2">
         <h3>Letiště Zadar</h3>
         <p>Nejbližší letiště, cca 1,5 hodiny autem. Nabízíme transfer z letiště přímo k apartmánům — domluvíme předem.</p>
       </div>
+
       <div class="transport-card fade-in stagger-3">
         <h3>Autobusem</h3>
         <p>Přímé linky z Prahy i Brna do Zadaru nebo Novalji. Zajistíme odvoz z autobusového nádraží.</p>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     CTA
+     ============================================================ -->
 <section class="cta-section">
-  <div class="section-inner" style="position:relative;z-index:1">
-    <h2 class="section-title fade-in" style="max-width:600px;margin:0 auto .75rem">Chcete si zarezervovat <em>termín</em>?</h2>
-    <p class="section-desc fade-in stagger-1">Napište nám nebo se podívejte na kalendář dostupnosti. Odpovíme do 24 hodin.</p>
-    <div class="fade-in stagger-2" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="#kalendar" class="btn btn-primary">Podívat se na volné apartmány</a>
+  <div class="section-inner">
+    <h2 class="section-title fade-in">Chcete si zarezervovat <em>termín</em>?</h2>
+    <p class="section-desc fade-in stagger-1">Napište nám a pošleme vám nabídku. Odpovíme do 24 hodin.</p>
+    <div class="cta-actions fade-in stagger-2">
+      <a href="#ubytovani" class="btn btn-primary">Podívat se na apartmány</a>
       <a href="#" class="btn btn-ghost">Napsat e-mail</a>
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     Footer
+     ============================================================ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div>
         <div class="footer-brand">Apartmány Jadranka</div>
-        <div class="footer-address">Zubovići, Ostrov Pag<br>Chorvatsko<br><br>+420 xxx xxx xxx</div>
+        <div class="footer-address">
+          Zubovići, Ostrov Pag<br>
+          Chorvatsko<br><br>
+          +420 xxx xxx xxx
+        </div>
       </div>
       <div>
         <h4>Ubytování</h4>
-        <a href="#">Lavanda (A1)</a><a href="#">Oliva (A2)</a><a href="#">Tramontana (A3)</a>
-        <a href="#">Maestral (A4)</a><a href="#">Bura (A5)</a><a href="#">Šalvija (A6)</a>
+        <a href="apartman-1.html">Apartmán 1 (A1)</a>
+        <a href="#">Oliva (A2)</a>
+        <a href="#">Tramontana (A3)</a>
+        <a href="#">Maestral (A4)</a>
+        <a href="#">Bura (A5)</a>
+        <a href="#">Šalvija (A6)</a>
       </div>
       <div>
         <h4>Užitečné</h4>
-        <a href="#">Kalendář obsazenosti</a><a href="#">Jak se k nám dostat</a><a href="#">Aktivity na Pagu</a><a href="#">FAQ</a>
+        <a href="#">Kalendář obsazenosti</a>
+        <a href="#">Jak se k nám dostat</a>
+        <a href="#">Aktivity na Pagu</a>
+        <a href="#">FAQ</a>
       </div>
-      <div>
+      <div class="footer-newsletter">
         <h4>Newsletter</h4>
-        <p style="font-size:.82rem;margin-bottom:.75rem">Novinky a volné termíny přímo do schránky.</p>
-        <div style="display:flex;gap:.5rem">
-          <input type="email" placeholder="email" style="flex:1;padding:.5rem .75rem;border:1px solid rgba(255,255,255,.15);border-radius:.4rem;background:rgba(255,255,255,.06);color:var(--white);font-family:var(--font-body);font-size:.8rem">
-          <button style="padding:.5rem 1rem;border:none;border-radius:.4rem;background:var(--terracotta);color:var(--white);font-size:.75rem;font-weight:500;cursor:pointer">OK</button>
+        <p>Novinky a volné termíny přímo do schránky.</p>
+        <div class="newsletter-form">
+          <input class="newsletter-input" type="email" placeholder="email">
+          <button class="newsletter-btn">OK</button>
         </div>
       </div>
     </div>
@@ -499,26 +527,6 @@ footer a:hover{color:var(--terracotta)}
   </div>
 </footer>
 
-<script>
-var nav = document.getElementById('nav');
-window.addEventListener('scroll', function() {
-  nav.classList.toggle('scrolled', window.scrollY > 50);
-});
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
-document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-  a.addEventListener('click', function(e) {
-    var href = a.getAttribute('href');
-    if (href === '#') return;
-    e.preventDefault();
-    var target = document.querySelector(href);
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
-</script>
+<script src="main.js"></script>
 </body>
 </html>

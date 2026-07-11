@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartmán 1 – Přízemní apartmán s terasou — Apartmány Jadranka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SVG sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-people" viewBox="0 0 24 24" fill="none">
+    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round"/>
+    <circle cx="9" cy="7" r="4"/>
+  </symbol>
+  <symbol id="icon-area" viewBox="0 0 24 24" fill="none">
+    <rect x="3" y="3" width="18" height="18" rx="2"/>
+    <path d="M3 9h18M9 21V9"/>
+  </symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none">
+    <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="icon-arrow-down" viewBox="0 0 24 24" fill="none">
+    <path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<!-- ============================================================
+     Navigation
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">Apartmány Jadranka</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-back-link">&#8592; Všechny apartmány</a>
+    <a href="#kalendar" class="nav-cta">Volné termíny</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     Hero
+     ============================================================ -->
+<section class="hero det-hero">
+  <div class="det-hero-bg"></div>
+
+  <div class="det-breadcrumb">
+    <a href="index.html">Apartmány Jadranka</a>
+    <span>/</span>
+    <a href="index.html#ubytovani">Ubytování</a>
+    <span>/</span>
+    <span>Apartmán 1</span>
+  </div>
+
+  <div class="det-hero-content">
+    <div class="det-hero-badge">A1</div>
+    <h1 class="det-hero-name">Apartmán 1<br><em>Přízemní apartmán s terasou</em></h1>
+    <p class="det-hero-tagline">Samostatný vchod, prosklená jídelna s výhledem na moře.<br>Ideální pro rodiny i páry.</p>
+    <div class="det-hero-chips">
+      <div class="det-hero-chip">
+        <svg><use href="#icon-people"/></svg> 2–4 osoby
+      </div>
+      <div class="det-hero-chip">
+        <svg><use href="#icon-area"/></svg> 36 m²
+      </div>
+      <div class="det-hero-chip">
+        od <strong>90 EUR</strong> / noc
+      </div>
+    </div>
+    <a href="#kalendar" class="btn btn-primary">Rezervovat termín</a>
+  </div>
+
+  <div class="scroll-hint">
+    <svg><use href="#icon-arrow-down"/></svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     Gallery
+     ============================================================ -->
+<section class="apt-photo-section" id="fotky">
+  <div class="section-inner">
+    <div class="section-tag">Fotogalerie</div>
+    <h2 class="section-title fade-in">Prohlédněte si <em>apartmán</em></h2>
+    <p class="section-desc fade-in stagger-1">Klikněte na fotku pro zobrazení v plné velikosti.</p>
+    <div class="gal-photo-grid">
+      <div class="gal-photo"><img src="photos/apartment-1/apartment-1-outside.png" alt="Exteriér — pohled na apartmán" loading="lazy"></div>
+      <div class="gal-photo"><img src="photos/apartment-1/apartment-1-outside-2.png" alt="Exteriér — terasa a zahrada" loading="lazy"></div>
+      <div class="gal-photo"><img src="photos/apartment-1/apartment-1-table.png" alt="Jídelna s výhledem na moře" loading="lazy"></div>
+      <div class="gal-photo"><img src="photos/apartment-1/apartment-1-inside.png" alt="Obývací pokoj s rozkládacím gaučem" loading="lazy"></div>
+      <div class="gal-photo"><img src="photos/apartment-1/apartment-1-kitchen-3.jpeg" alt="Kuchyň — vybavení" loading="lazy"></div>
+      <div class="gal-photo"><img src="photos/apartment-1/apartment-1-kitchen-2.jpeg" alt="Kuchyň — pracovní plocha" loading="lazy"></div>
+      <div class="gal-photo"><img src="photos/apartment-1/apartment-1-bedroom.jpeg" alt="Ložnice s manželskou postelí" loading="lazy"></div>
+      <div class="gal-photo"><img src="photos/apartment-1/apartment-1-kitchen.jpeg" alt="Kuchyň — celkový pohled" loading="lazy"></div>
+    <!--   <div class="gal-photo"><img src="photos/apartment-1/apartment-1-toilet.jpeg" alt="Koupelna se sprchovým koutem" loading="lazy"></div>  -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Overview
+     ============================================================ -->
+<section class="det-overview">
+  <div class="section-inner">
+    <div class="det-overview-grid">
+
+      <div class="det-overview-desc">
+        <div class="section-tag">O apartmánu</div>
+        <h2 class="section-title fade-in">Přízemní apartmán — <em>váš domov u moře</em></h2>
+        <p class="about-text fade-in stagger-1">
+          Apartmán 1 se nachází v přízemí rodinného domu s vlastním samostatným vchodem. 
+          Prosklená předsíň s jídelnou nabízí nádherný výhled na moře — ideální místo pro ranní kávu 
+          nebo večeři při západu slunce. Z obývacího pokoje vede přímý vstup na terasu s výhledem na Jadran.
+        </p>
+        <p class="about-text fade-in stagger-2">
+          Ložnice je vybavena manželskou postelí, která zajistí klidný spánek po dni stráveném u moře. 
+          V obývacím pokoji najdete rozkládací gauč pro další dvě osoby — apartmán tak pohodlně pojme 
+          rodinu se dvěma dětmi. Kuchyň je plně vybavená vším potřebným pro přípravu jídel, včetně 
+          mikrovlnné trouby a rychlovarné konvice.
+        </p>
+        <p class="about-text fade-in stagger-3">
+          Koupelna se sprchovým koutem, WC a umyvadlem je moderní a čistá. K dispozici máte klimatizaci, 
+          satelitní TV, Wi-Fi a trezor. Terasa s výhledem na moře je vybavená zahradním nábytkem, 
+          lehátky a slunečníkem. Pláž je vzdálena pouhé 3 minuty pěšky, parkování přímo u domu je zdarma.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Amenities
+     ============================================================ -->
+<section class="det-amenities">
+  <div class="section-inner">
+    <div class="section-tag">Vybavení</div>
+    <h2 class="section-title fade-in">Co v apartmánu <em>najdete</em></h2>
+    <div class="det-amenity-grid fade-in stagger-1">
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">📺</div>
+        <span>Satelitní TV</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">❄️</div>
+        <span>Klimatizace</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">📶</div>
+        <span>Wi-Fi</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">🍳</div>
+        <span>Mikrovlnná trouba</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">☕</div>
+        <span>Rychlovarná konvice</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">�</div>
+        <span>Fén</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">�</div>
+        <span>Žehlička</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">�</div>
+        <span>Trezor</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">🛋️</div>
+        <span>Lehátka</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">☂️</div>
+        <span>Slunečník</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">🧊</div>
+        <span>Minibar</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">🚗</div>
+        <span>Parkování</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">�</div>
+        <span>Grill</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">�</div>
+        <span>Zahrada k použití</span>
+      </div>
+      <div class="det-amenity-item">
+        <div class="det-amenity-icon">🏖️</div>
+        <span>Pláž 3 min</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Pricing
+     ============================================================ -->
+<section class="det-pricing">
+  <div class="section-inner">
+    <div class="section-tag">Ceny</div>
+    <h2 class="section-title fade-in">Ceník <em>2026</em></h2>
+    <div class="det-price-grid">
+
+      <div class="det-price-card fade-in stagger-1">
+        <div class="det-price-season">Předsezóna</div>
+        <div class="det-price-dates">1. 5. – 30. 6.</div>
+        <div class="det-price-amount">
+          <span class="det-price-num">90</span>
+          <span class="det-price-cur">EUR / noc</span>
+        </div>
+      </div>
+
+      <div class="det-price-card det-price-card--peak fade-in stagger-2">
+        <div class="det-price-season">Hlavní sezóna</div>
+        <div class="det-price-dates">1. 7. – 3. 9.</div>
+        <div class="det-price-amount">
+          <span class="det-price-num">130</span>
+          <span class="det-price-cur">EUR / noc</span>
+        </div>
+      </div>
+
+      <div class="det-price-card fade-in stagger-3">
+        <div class="det-price-season">Posezóna</div>
+        <div class="det-price-dates">4. 9. – 31. 10.</div>
+        <div class="det-price-amount">
+          <span class="det-price-num">90</span>
+          <span class="det-price-cur">EUR / noc</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="fade-in stagger-3" style="text-align:center;margin-top:2rem">
+      <a href="#kalendar" class="btn btn-primary">Zkontrolovat dostupnost</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Availability Calendar
+     ============================================================ -->
+<section class="calendar-section" id="kalendar">
+  <div class="section-inner">
+    <div class="section-tag">Dostupnost · Apartmán 1</div>
+    <h2 class="section-title fade-in">Vyberte si <em>termín</em></h2>
+    <p class="section-desc fade-in stagger-1">Vyberte si termín pro Apartmán 1. Klikněte na volné datum a pošleme vám nabídku do 24 hodin.</p>
+    <div class="cal-preview fade-in stagger-2">
+      <div class="cal-header">
+        <div class="cal-month">Červenec 2026</div>
+        <div class="cal-controls">
+          <select class="cal-filter">
+            <option>Všechny apartmány</option>
+            <option selected>Apartmán 1 (A1)</option>
+            <option>Oliva (A2)</option>
+            <option>Tramontana (A3)</option>
+            <option>Maestral (A4)</option>
+            <option>Bura (A5)</option>
+            <option>Šalvija (A6)</option>
+          </select>
+          <div class="cal-nav">
+            <button aria-label="Předchozí měsíc">&#8249;</button>
+            <button aria-label="Další měsíc">&#8250;</button>
+          </div>
+        </div>
+      </div>
+      <div class="cal-grid">
+        <div class="cal-day-name">Po</div>
+        <div class="cal-day-name">Út</div>
+        <div class="cal-day-name">St</div>
+        <div class="cal-day-name">Čt</div>
+        <div class="cal-day-name">Pá</div>
+        <div class="cal-day-name">So</div>
+        <div class="cal-day-name">Ne</div>
+
+        <div class="cal-day empty"></div>
+        <div class="cal-day empty"></div>
+        <div class="cal-day available">1</div>
+        <div class="cal-day available">2</div>
+        <div class="cal-day available">3</div>
+        <div class="cal-day booked">4</div>
+        <div class="cal-day booked">5</div>
+
+        <div class="cal-day booked">6</div>
+        <div class="cal-day booked">7</div>
+        <div class="cal-day booked">8</div>
+        <div class="cal-day booked">9</div>
+        <div class="cal-day booked">10</div>
+        <div class="cal-day booked">11</div>
+        <div class="cal-day available">12</div>
+
+        <div class="cal-day available">13</div>
+        <div class="cal-day available">14</div>
+        <div class="cal-day available">15</div>
+        <div class="cal-day available">16</div>
+        <div class="cal-day booked">17</div>
+        <div class="cal-day booked">18</div>
+        <div class="cal-day booked">19</div>
+
+        <div class="cal-day booked">20</div>
+        <div class="cal-day booked">21</div>
+        <div class="cal-day booked">22</div>
+        <div class="cal-day booked">23</div>
+        <div class="cal-day booked">24</div>
+        <div class="cal-day booked">25</div>
+        <div class="cal-day booked">26</div>
+
+        <div class="cal-day available">27</div>
+        <div class="cal-day available">28</div>
+        <div class="cal-day available">29</div>
+        <div class="cal-day available">30</div>
+        <div class="cal-day available">31</div>
+      </div>
+      <div class="cal-legend">
+        <div class="cal-legend-item">
+          <div class="cal-legend-dot" style="background:var(--white);border:1px solid var(--stone)"></div>
+          Volné
+        </div>
+        <div class="cal-legend-item">
+          <div class="cal-legend-dot" style="background:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(196,105,74,.15) 2px,rgba(196,105,74,.15) 4px)"></div>
+          Obsazeno
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA / Booking
+     ============================================================ -->
+<section class="cta-section" id="rezervace">
+  <div class="section-inner">
+    <h2 class="section-title fade-in">Zájem o <em>Apartmán 1</em>?</h2>
+    <p class="section-desc fade-in stagger-1">Napište nám nebo zavolejte — odpovíme do 24 hodin a potvrdíme dostupnost.</p>
+    <p class="section-desc fade-in stagger-1" style="margin-top:.5rem;font-size:.85rem">
+      info@jadranka.cz · +420 xxx xxx xxx
+    </p>
+    <div class="cta-actions fade-in stagger-2">
+      <a href="mailto:info@jadranka.cz" class="btn btn-primary">Napsat e-mail</a>
+      <a href="tel:+420000000000" class="btn btn-ghost">Zavolat</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Other Apartments
+     ============================================================ -->
+<section class="det-more-apts">
+  <div class="section-inner">
+    <div class="section-tag">Další apartmány</div>
+    <h2 class="section-title fade-in">Další možnosti <em>ubytování</em></h2>
+    <div class="apt-grid">
+
+      <div class="apt-card fade-in stagger-1">
+        <div class="apt-img">
+          <div class="apt-img-inner" style="background: linear-gradient(135deg,#98D8C8,#4da888)"></div>
+          <div class="apt-badge">A2</div>
+        </div>
+        <div class="apt-body">
+          <h3 class="apt-name">Apartmán Oliva</h3>
+          <div class="apt-meta">
+            <span><svg class="apt-meta-icon"><use href="#icon-people"/></svg> 2–3 osoby</span>
+            <span><svg class="apt-meta-icon"><use href="#icon-area"/></svg> 35 m²</span>
+          </div>
+          <div class="apt-price">od <span>45 EUR</span> / noc</div>
+          <a href="#" class="apt-link">Detail <svg><use href="#icon-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+      <div class="apt-card fade-in stagger-2">
+        <div class="apt-img">
+          <div class="apt-img-inner" style="background: linear-gradient(135deg,#F4C587,#d4945a)"></div>
+          <div class="apt-badge">A3</div>
+        </div>
+        <div class="apt-body">
+          <h3 class="apt-name">Apartmán Tramontana</h3>
+          <div class="apt-meta">
+            <span><svg class="apt-meta-icon"><use href="#icon-people"/></svg> 4–6 osob</span>
+            <span><svg class="apt-meta-icon"><use href="#icon-area"/></svg> 60 m²</span>
+          </div>
+          <div class="apt-price">od <span>70 EUR</span> / noc</div>
+          <a href="#" class="apt-link">Detail <svg><use href="#icon-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+      <div class="apt-card fade-in stagger-3">
+        <div class="apt-img">
+          <div class="apt-img-inner" style="background: linear-gradient(135deg,#B8A9C9,#8b6fad)"></div>
+          <div class="apt-badge">A4</div>
+        </div>
+        <div class="apt-body">
+          <h3 class="apt-name">Apartmán Maestral</h3>
+          <div class="apt-meta">
+            <span><svg class="apt-meta-icon"><use href="#icon-people"/></svg> 2–3 osoby</span>
+            <span><svg class="apt-meta-icon"><use href="#icon-area"/></svg> 40 m²</span>
+          </div>
+          <div class="apt-price">od <span>50 EUR</span> / noc</div>
+          <a href="#" class="apt-link">Detail <svg><use href="#icon-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+    <div class="fade-in stagger-4" style="text-align:center;margin-top:2rem">
+      <a href="index.html#ubytovani" class="btn btn-ghost" style="color:var(--sea);border-color:var(--stone)">
+        Zobrazit všechny apartmány
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Footer
+     ============================================================ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Apartmány Jadranka</div>
+        <div class="footer-address">
+          Zubovići, Ostrov Pag<br>
+          Chorvatsko<br><br>
+          +420 xxx xxx xxx
+        </div>
+      </div>
+      <div>
+        <h4>Ubytování</h4>
+        <a href="apartman-lavanda.html">Lavanda (A1)</a>
+        <a href="#">Oliva (A2)</a>
+        <a href="#">Tramontana (A3)</a>
+        <a href="#">Maestral (A4)</a>
+        <a href="#">Bura (A5)</a>
+        <a href="#">Šalvija (A6)</a>
+      </div>
+      <div>
+        <h4>Užitečné</h4>
+        <a href="#">Kalendář obsazenosti</a>
+        <a href="#">Jak se k nám dostat</a>
+        <a href="#">Aktivity na Pagu</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Novinky a volné termíny přímo do schránky.</p>
+        <div class="newsletter-form">
+          <input class="newsletter-input" type="email" placeholder="email">
+          <button class="newsletter-btn">OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>2026 Apartmány Jadranka</span>
+      <span>Vytvořeno s láskou</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Zavřít">&times;</button>
+  <img src="" alt="">
+</div>
+
+<script src="main.js"></script>
+<script>
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = lb.querySelector('img');
+  var lbClose = lb.querySelector('.lightbox-close');
+
+  document.querySelectorAll('.gal-photo img').forEach(function(img) {
+    img.addEventListener('click', function() {
+      lbImg.src = this.src;
+      lbImg.alt = this.alt;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', function(e) {
+    if (e.target === lb) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
+</body>
+</html>
