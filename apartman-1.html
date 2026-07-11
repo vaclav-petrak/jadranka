@@ -253,83 +253,7 @@
     <div class="section-tag">Dostupnost · Apartmán 1</div>
     <h2 class="section-title fade-in">Vyberte si <em>termín</em></h2>
     <p class="section-desc fade-in stagger-1">Vyberte si termín pro Apartmán 1. Klikněte na volné datum a pošleme vám nabídku do 24 hodin.</p>
-    <div class="cal-preview fade-in stagger-2">
-      <div class="cal-header">
-        <div class="cal-month">Červenec 2026</div>
-        <div class="cal-controls">
-          <select class="cal-filter">
-            <option>Všechny apartmány</option>
-            <option selected>Apartmán 1 (A1)</option>
-            <option>Oliva (A2)</option>
-            <option>Tramontana (A3)</option>
-            <option>Maestral (A4)</option>
-            <option>Bura (A5)</option>
-            <option>Šalvija (A6)</option>
-          </select>
-          <div class="cal-nav">
-            <button aria-label="Předchozí měsíc">&#8249;</button>
-            <button aria-label="Další měsíc">&#8250;</button>
-          </div>
-        </div>
-      </div>
-      <div class="cal-grid">
-        <div class="cal-day-name">Po</div>
-        <div class="cal-day-name">Út</div>
-        <div class="cal-day-name">St</div>
-        <div class="cal-day-name">Čt</div>
-        <div class="cal-day-name">Pá</div>
-        <div class="cal-day-name">So</div>
-        <div class="cal-day-name">Ne</div>
-
-        <div class="cal-day empty"></div>
-        <div class="cal-day empty"></div>
-        <div class="cal-day available">1</div>
-        <div class="cal-day available">2</div>
-        <div class="cal-day available">3</div>
-        <div class="cal-day booked">4</div>
-        <div class="cal-day booked">5</div>
-
-        <div class="cal-day booked">6</div>
-        <div class="cal-day booked">7</div>
-        <div class="cal-day booked">8</div>
-        <div class="cal-day booked">9</div>
-        <div class="cal-day booked">10</div>
-        <div class="cal-day booked">11</div>
-        <div class="cal-day available">12</div>
-
-        <div class="cal-day available">13</div>
-        <div class="cal-day available">14</div>
-        <div class="cal-day available">15</div>
-        <div class="cal-day available">16</div>
-        <div class="cal-day booked">17</div>
-        <div class="cal-day booked">18</div>
-        <div class="cal-day booked">19</div>
-
-        <div class="cal-day booked">20</div>
-        <div class="cal-day booked">21</div>
-        <div class="cal-day booked">22</div>
-        <div class="cal-day booked">23</div>
-        <div class="cal-day booked">24</div>
-        <div class="cal-day booked">25</div>
-        <div class="cal-day booked">26</div>
-
-        <div class="cal-day available">27</div>
-        <div class="cal-day available">28</div>
-        <div class="cal-day available">29</div>
-        <div class="cal-day available">30</div>
-        <div class="cal-day available">31</div>
-      </div>
-      <div class="cal-legend">
-        <div class="cal-legend-item">
-          <div class="cal-legend-dot" style="background:var(--white);border:1px solid var(--stone)"></div>
-          Volné
-        </div>
-        <div class="cal-legend-item">
-          <div class="cal-legend-dot" style="background:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(196,105,74,.15) 2px,rgba(196,105,74,.15) 4px)"></div>
-          Obsazeno
-        </div>
-      </div>
-    </div>
+    <div class="cal-preview fade-in stagger-2" data-calendar data-apartment="a1"></div>
   </div>
 </section>
 
@@ -441,7 +365,7 @@
       </div>
       <div>
         <h4>Užitečné</h4>
-        <a href="#">Kalendář obsazenosti</a>
+        <a href="#kalendar">Kalendář obsazenosti</a>
         <a href="#">Jak se k nám dostat</a>
         <a href="#">Aktivity na Pagu</a>
         <a href="#">FAQ</a>
@@ -469,6 +393,7 @@
 </div>
 
 <script src="main.js"></script>
+<script src="calendar.js"></script>
 <script>
 (function() {
   var lb = document.getElementById('lightbox');

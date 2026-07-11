@@ -761,15 +761,22 @@ section {
 .cal-day {
   aspect-ratio: 1.2;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: .1rem;
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
   border-radius: .5rem;
   font-size: .85rem;
   transition: all .2s;
   cursor: pointer;
 }
 
-.cal-day:hover {
+.cal-day.available:hover {
   background: var(--sea-light);
 }
 
@@ -791,6 +798,102 @@ section {
 
 .cal-day.empty {
   cursor: default;
+}
+
+.cal-day-price {
+  font-size: .58rem;
+  color: var(--ink-light);
+  letter-spacing: .02em;
+}
+
+.cal-day.out,
+.cal-day.past {
+  background: var(--sand);
+  color: var(--stone);
+  cursor: default;
+}
+
+.cal-day.sel-start,
+.cal-day.sel-end,
+.cal-day.sel-start:hover,
+.cal-day.sel-end:hover {
+  background: var(--sea);
+  color: var(--white);
+}
+
+.cal-day.sel-start .cal-day-price,
+.cal-day.sel-end .cal-day-price {
+  color: rgba(255, 255, 255, .75);
+}
+
+.cal-day.in-range,
+.cal-day.in-range:hover {
+  background: var(--sea-light);
+  color: var(--sea-deep);
+}
+
+.cal-day.in-range .cal-day-price {
+  color: var(--sea-deep);
+  opacity: .7;
+}
+
+.cal-day.preview,
+.cal-day.preview:hover {
+  background: var(--sea-light);
+  opacity: .6;
+}
+
+.cal-day.available:focus-visible,
+.cal-nav button:focus-visible {
+  outline: 2px solid var(--sea);
+  outline-offset: 2px;
+}
+
+.cal-nav button:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.cal-nav button:disabled:hover {
+  border-color: var(--stone);
+  color: inherit;
+}
+
+.cal-summary {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .75rem;
+  background: var(--sea-light);
+  color: var(--sea-deep);
+  border-radius: .5rem;
+  padding: .75rem 1.25rem;
+  font-size: .9rem;
+  text-align: center;
+}
+
+.cal-summary-clear {
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+  font-size: .75rem;
+  color: var(--sea);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cal-msg {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: .85rem;
+  color: var(--terracotta);
+}
+
+/* hidden attribute must win over display:flex/grid inside the widget */
+.cal-preview [hidden] {
+  display: none !important;
 }
 
 .cal-legend {
@@ -829,6 +932,139 @@ section {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.cal-legend-dot--free {
+  background: var(--white);
+  border: 1px solid var(--stone);
+}
+
+.cal-legend-dot--booked {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent, transparent 2px,
+    rgba(196, 105, 74, .15) 2px, rgba(196, 105, 74, .15) 4px
+  );
+  border: 1px solid var(--stone);
+}
+
+.cal-legend-dot--out {
+  background: var(--sand);
+  border: 1px solid var(--stone);
+}
+
+/* --- Reservation form --- */
+.res-form-wrap {
+  margin-top: 2rem;
+  border-top: 1px solid var(--stone);
+  padding-top: 2rem;
+}
+
+.res-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.res-summary {
+  grid-column: 1 / -1;
+  background: var(--sea-light);
+  color: var(--sea-deep);
+  border-radius: .5rem;
+  padding: .85rem 1.25rem;
+  font-size: .9rem;
+  text-align: center;
+}
+
+.res-field {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+.res-field input,
+.res-field textarea {
+  border: 1px solid var(--stone);
+  border-radius: .5rem;
+  padding: .75rem 1rem;
+  font-family: var(--font-body);
+  font-size: .9rem;
+  color: var(--ink);
+  background: var(--white);
+  letter-spacing: normal;
+  text-transform: none;
+  transition: border-color .2s;
+  resize: vertical;
+}
+
+.res-field input:focus,
+.res-field textarea:focus {
+  outline: none;
+  border-color: var(--sea);
+}
+
+.res-field.invalid input,
+.res-field.invalid textarea {
+  border-color: var(--terracotta);
+}
+
+.res-field-error {
+  display: none;
+  color: var(--terracotta);
+  font-weight: 400;
+  font-size: .75rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.res-field.invalid .res-field-error {
+  display: block;
+}
+
+.res-full {
+  grid-column: 1 / -1;
+}
+
+.res-actions {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.res-success {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.res-success h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: .5rem;
+}
+
+.res-success p {
+  color: var(--ink-light);
+  font-size: .95rem;
+}
+
+.res-success .btn {
+  margin-top: 1.5rem;
+}
+
+.btn-outline {
+  border: 1px solid var(--sea);
+  color: var(--sea);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--sea);
+  color: var(--white);
 }
 
 /* ============================================================
@@ -1216,6 +1452,10 @@ footer a:hover {
   .gal-tabs { top: 0; }
   .apt-grid { grid-template-columns: 1fr; }
   .cal-preview { padding: 1.5rem; }
+  .cal-grid { gap: 2px; }
+  .cal-day { aspect-ratio: auto; padding: .35rem 0; font-size: .7rem; }
+  .cal-day-price { font-size: .5rem; }
+  .res-form { grid-template-columns: 1fr; }
 
   /* Detail page responsive */
   .det-overview-grid { grid-template-columns: 1fr; }
