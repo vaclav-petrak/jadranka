@@ -13,7 +13,7 @@
   // ---- Konfigurace a data ------------------------------------
 
   // Sezóna: 3. týden května – konec října (měsíce 0-based)
-  const SEASON = { year: 2026, startMonth: 4, startDay: 18, endMonth: 9, endDay: 31 };
+  const SEASON = { year: 2026, startMonth: 4, startDay: 15, endMonth: 9, endDay: 31 };
 
   // Cenová pásma odpovídají ceníku na apartman-1.html
   const PRICE_TIERS = [
@@ -117,20 +117,22 @@
   // ---- Komponenta --------------------------------------------
 
   function initCalendar(container, { apartmentId = 'a1', showSelect = true } = {}) {
-    // Zobrazují se jen měsíce zasahující do sezóny (květen–říjen)
+    // Zobrazují se jen měsíce sezóny (květen–říjen), které ještě neproběhly celé.
     const months = [];
-    for (let m = SEASON.startMonth; m <= SEASON.endMonth; m++) months.push(m);
-
-    function initialMonthIndex() {
-      const now = new Date();
-      if (now.getFullYear() < SEASON.year) return 0;
-      if (now.getFullYear() > SEASON.year) return months.length - 1;
-      return Math.min(Math.max(now.getMonth() - SEASON.startMonth, 0), months.length - 1);
+    for (let m = SEASON.startMonth; m <= SEASON.endMonth; m++) {
+      const lastDay = toIso(new Date(SEASON.year, m + 1, 0));
+      if (lastDay >= TODAY) months.push(m);
     }
+    if (months.length === 0) months.push(SEASON.endMonth); // sezóna už skončila – ukázat poslední měsíc
+
+    // Na desktopu vždy dva měsíce vedle sebe (nikdy jeden samostatný),
+    // na mobilu jeden — podle stejného zlomu jako CSS (768px).
+    const twoUp = window.matchMedia('(min-width: 769px)');
+    const maxIndex = () => Math.max(0, twoUp.matches ? months.length - 2 : months.length - 1);
 
     const state = {
       apartmentId,
-      monthIndex: initialMonthIndex(),
+      monthIndex: 0, // months[0] je aktuální (nebo první nadcházející) měsíc
       selStart: null,
       selEnd: null,
       booked: new Set(),
@@ -138,7 +140,6 @@
 
     container.innerHTML = `
       <div class="cal-header">
-        <div class="cal-month"></div>
         <div class="cal-controls">
           ${showSelect ? `<select class="cal-filter" aria-label="Výběr apartmánu">
             ${APARTMENTS.map(a => `<option value="${a.id}"${a.id === state.apartmentId ? ' selected' : ''}>${a.label}</option>`).join('')}
@@ -149,7 +150,7 @@
           </div>
         </div>
       </div>
-      <div class="cal-grid"></div>
+      <div class="cal-body"></div>
       <div class="cal-msg" hidden></div>
       <div class="cal-summary" hidden></div>
       <div class="cal-legend">
@@ -172,8 +173,8 @@
             <input type="tel" name="phone" autocomplete="tel">
             <span class="res-field-error">Zadejte platné telefonní číslo.</span>
           </label>
-          <label class="res-field res-full">Zpráva
-            <textarea name="message" rows="4" placeholder="Počet osob, dotazy…"></textarea>
+          <label class="res-field res-full">Text vašeho dotazu…
+            <textarea name="message" rows="4" placeholder="P"></textarea>
           </label>
           <div class="res-actions res-full">
             <button type="submit" class="btn btn-primary">Odeslat poptávku</button>
@@ -189,8 +190,7 @@
     `;
 
     const el = sel => container.querySelector(sel);
-    const monthEl = el('.cal-month');
-    const gridEl = el('.cal-grid');
+    const bodyEl = el('.cal-body');
     const msgEl = el('.cal-msg');
     const summaryEl = el('.cal-summary');
     const prevBtn = el('.cal-prev');
@@ -226,13 +226,10 @@
       return true;
     }
 
-    function renderGrid() {
-      const month = months[state.monthIndex];
+    function buildMonthPanel(month) {
       const first = new Date(SEASON.year, month, 1);
       const label = first.toLocaleDateString('cs-CZ', { month: 'long', year: 'numeric' });
-      monthEl.textContent = label.charAt(0).toUpperCase() + label.slice(1);
-      prevBtn.disabled = state.monthIndex === 0;
-      nextBtn.disabled = state.monthIndex === months.length - 1;
+      const title = label.charAt(0).toUpperCase() + label.slice(1);
 
       const cells = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne']
         .map(n => `<div class="cal-day-name">${n}</div>`);
@@ -259,7 +256,23 @@
           );
         }
       }
-      gridEl.innerHTML = cells.join('');
+      return `<div class="cal-month-block">` +
+        `<div class="cal-month-label">${title}</div>` +
+        `<div class="cal-grid">${cells.join('')}</div></div>`;
+    }
+
+    function renderMonths() {
+      // Přepočet po změně velikosti okna (desktop zobrazí dvojici, mobil jeden)
+      if (state.monthIndex > maxIndex()) state.monthIndex = maxIndex();
+      prevBtn.disabled = state.monthIndex === 0;
+      nextBtn.disabled = state.monthIndex >= maxIndex();
+      // Vykreslíme aktuální měsíc a (pokud existuje) i následující;
+      // na mobilu druhý panel skryje CSS.
+      let html = buildMonthPanel(months[state.monthIndex]);
+      if (state.monthIndex + 1 < months.length) {
+        html += buildMonthPanel(months[state.monthIndex + 1]);
+      }
+      bodyEl.innerHTML = html;
     }
 
     function renderSummary() {
@@ -280,7 +293,7 @@
       }
     }
 
-    function updateForm(scrollToForm) {
+    function updateForm() {
       if (state.selStart && state.selEnd) {
         const nights = daysBetween(state.selStart, state.selEnd);
         const total = totalFor(state.apartmentId, state.selStart, state.selEnd);
@@ -289,16 +302,15 @@
         form.hidden = false;
         successEl.hidden = true;
         formWrap.hidden = false;
-        if (scrollToForm) formWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       } else {
         formWrap.hidden = true;
       }
     }
 
-    function update(opts = {}) {
-      renderGrid();
+    function update() {
+      renderMonths();
       renderSummary();
-      updateForm(opts.scrollToForm);
+      updateForm();
     }
 
     let msgTimer = null;
@@ -317,11 +329,10 @@
 
     // --- Výběr rozsahu ---
 
-    gridEl.addEventListener('click', e => {
+    bodyEl.addEventListener('click', e => {
       const btn = e.target.closest('.cal-day[data-date]');
       if (!btn || btn.disabled) return;
       const d = btn.dataset.date;
-      let scrollToForm = false;
 
       if (!state.selStart || state.selEnd) {
         state.selStart = d;
@@ -332,33 +343,32 @@
         state.selStart = d;
       } else if (rangeIsFree(state.selStart, d)) {
         state.selEnd = d;
-        scrollToForm = true;
       } else {
         state.selStart = d;
         state.selEnd = null;
         flashMsg('Vybraný termín obsahuje obsazené dny — vyberte prosím jiný.');
       }
-      update({ scrollToForm });
+      update();
     });
 
     // Náhled rozsahu při najetí myší (jen přepínání tříd, bez překreslení)
     function clearPreview() {
-      gridEl.querySelectorAll('.preview').forEach(c => c.classList.remove('preview'));
+      bodyEl.querySelectorAll('.preview').forEach(c => c.classList.remove('preview'));
     }
 
-    gridEl.addEventListener('mouseover', e => {
+    bodyEl.addEventListener('mouseover', e => {
       clearPreview();
       if (!state.selStart || state.selEnd) return;
       const btn = e.target.closest('.cal-day.available[data-date]');
       if (!btn) return;
       const d = btn.dataset.date;
       if (d <= state.selStart || !rangeIsFree(state.selStart, d)) return;
-      gridEl.querySelectorAll('.cal-day[data-date]').forEach(c => {
+      bodyEl.querySelectorAll('.cal-day[data-date]').forEach(c => {
         const cd = c.dataset.date;
         if (cd > state.selStart && cd <= d) c.classList.add('preview');
       });
     });
-    gridEl.addEventListener('mouseleave', clearPreview);
+    bodyEl.addEventListener('mouseleave', clearPreview);
 
     summaryEl.addEventListener('click', e => {
       if (e.target.closest('.cal-summary-clear')) clearSelection();
@@ -368,12 +378,15 @@
 
     prevBtn.addEventListener('click', () => {
       state.monthIndex = Math.max(0, state.monthIndex - 1);
-      renderGrid();
+      renderMonths();
     });
     nextBtn.addEventListener('click', () => {
-      state.monthIndex = Math.min(months.length - 1, state.monthIndex + 1);
-      renderGrid();
+      state.monthIndex = Math.min(maxIndex(), state.monthIndex + 1);
+      renderMonths();
     });
+
+    // Po překročení zlomu (desktop ↔ mobil) překreslit a doladit rozsah
+    twoUp.addEventListener('change', renderMonths);
 
     if (selectEl) {
       selectEl.addEventListener('change', async () => {

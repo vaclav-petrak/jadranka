@@ -742,6 +742,27 @@ section {
   color: var(--sea);
 }
 
+.cal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+/* Když je vidět jen jeden měsíc (poslední krok sezóny), vycentrovat */
+.cal-body:has(> .cal-month-block:only-child) {
+  grid-template-columns: 1fr;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.cal-month-label {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 .cal-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -759,19 +780,19 @@ section {
 }
 
 .cal-day {
-  aspect-ratio: 1.2;
+  min-height: 2.9rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: .1rem;
+  gap: .05rem;
   border: none;
   background: none;
   padding: 0;
   font-family: var(--font-body);
   color: var(--ink);
   border-radius: .5rem;
-  font-size: .85rem;
+  font-size: .8rem;
   transition: all .2s;
   cursor: pointer;
 }
@@ -786,14 +807,9 @@ section {
 }
 
 .cal-day.booked {
-  color: var(--ink-light);
-  background: repeating-linear-gradient(
-    45deg,
-    transparent, transparent 3px,
-    rgba(196, 105, 74, .08) 3px, rgba(196, 105, 74, .08) 6px
-  );
-  cursor: default;
-  opacity: .5;
+  background: var(--terracotta-light);
+  color: var(--terracotta);
+  cursor: not-allowed;
 }
 
 .cal-day.empty {
@@ -808,8 +824,8 @@ section {
 
 .cal-day.out,
 .cal-day.past {
-  background: var(--sand);
-  color: var(--stone);
+  background: var(--stone);
+  color: var(--ink-light);
   cursor: default;
 }
 
@@ -940,16 +956,12 @@ section {
 }
 
 .cal-legend-dot--booked {
-  background: repeating-linear-gradient(
-    45deg,
-    transparent, transparent 2px,
-    rgba(196, 105, 74, .15) 2px, rgba(196, 105, 74, .15) 4px
-  );
-  border: 1px solid var(--stone);
+  background: var(--terracotta-light);
+  border: 1px solid var(--terracotta);
 }
 
 .cal-legend-dot--out {
-  background: var(--sand);
+  background: var(--stone);
   border: 1px solid var(--stone);
 }
 
@@ -1452,9 +1464,11 @@ footer a:hover {
   .gal-tabs { top: 0; }
   .apt-grid { grid-template-columns: 1fr; }
   .cal-preview { padding: 1.5rem; }
+  .cal-body { grid-template-columns: 1fr; }
+  .cal-month-block:nth-child(2) { display: none; }
   .cal-grid { gap: 2px; }
-  .cal-day { aspect-ratio: auto; padding: .35rem 0; font-size: .7rem; }
-  .cal-day-price { font-size: .5rem; }
+  .cal-day { min-height: 2.4rem; padding: .3rem 0; font-size: .75rem; }
+  .cal-day-price { font-size: .52rem; }
   .res-form { grid-template-columns: 1fr; }
 
   /* Detail page responsive */
