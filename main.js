@@ -26,3 +26,32 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
+// Lightbox (gallery pages only — no-ops where #lightbox is absent)
+const lb = document.getElementById('lightbox');
+if (lb) {
+  const lbImg = lb.querySelector('img');
+  const lbClose = lb.querySelector('.lightbox-close');
+
+  const closeLightbox = () => {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('.gal-photo img').forEach((img) => {
+    img.addEventListener('click', () => {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+}

@@ -16,7 +16,6 @@
   --sea-light: #e8f4f6;
   --terracotta: #c4694a;
   --terracotta-light: #f8ede8;
-  --olive: #5a6b3c;
   --ink: #1a1a18;
   --ink-light: #4a4a45;
   --white: #ffffff;
@@ -405,15 +404,6 @@ section {
   padding: 1.5rem;
 }
 
-.apt-number {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--ink-light);
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
 .apt-name {
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -436,7 +426,6 @@ section {
   gap: .35rem;
 }
 
-.apt-meta svg,
 .apt-meta-icon {
   width: 14px;
   height: 14px;
@@ -639,6 +628,23 @@ section {
   color: var(--ink-light);
 }
 
+/* --- Decorative placeholder gradients ---
+   Stand-ins for photos not yet available; reusable across
+   .apt-img-inner, .gallery-card-img and .gal-photo-placeholder. */
+.grad-sky     { background: linear-gradient(135deg, #87CEEB, #4da8b8); }
+.grad-sky-2   { background: linear-gradient(135deg, #a8d8e8, #3d8fa0); }
+.grad-sky-3   { background: linear-gradient(135deg, #87CEEB, #3d8fa0); }
+.grad-sky-4   { background: linear-gradient(135deg, #a8d8e8, #5ea8c0); }
+.grad-teal    { background: linear-gradient(135deg, #98D8C8, #4da888); }
+.grad-gold    { background: linear-gradient(135deg, #F4C587, #d4945a); }
+.grad-gold-2  { background: linear-gradient(135deg, #f2d8a8, #c4944a); }
+.grad-gold-3  { background: linear-gradient(135deg, #e8c898, #b8845a); }
+.grad-lilac   { background: linear-gradient(135deg, #B8A9C9, #8b6fad); }
+.grad-lilac-2 { background: linear-gradient(135deg, #c8b9d9, #9b7fbd); }
+.grad-lilac-3 { background: linear-gradient(135deg, #a899b9, #7b5f9d); }
+.grad-green   { background: linear-gradient(135deg, #A8D5BA, #5ea87a); }
+.grad-amber   { background: linear-gradient(135deg, #F2B880, #d48a4a); }
+
 /* --- Lightbox --- */
 .lightbox {
   position: fixed;
@@ -711,12 +717,6 @@ section {
   margin-bottom: 2rem;
   flex-wrap: wrap;
   gap: 1rem;
-}
-
-.cal-month {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 400;
 }
 
 .cal-nav {
@@ -1473,9 +1473,6 @@ footer a:hover {
 
   /* Detail page responsive */
   .det-overview-grid { grid-template-columns: 1fr; }
-  .det-highlights-wrap { position: static; }
-  .det-gallery { grid-template-columns: 1fr; height: 300px; }
-  .det-gallery-thumbs { display: none; }
   .det-hero-chips { flex-direction: column; align-items: center; }
   .det-breadcrumb { font-size: .6rem; }
 
@@ -1654,72 +1651,6 @@ footer a:hover {
   background: var(--sand-light);
 }
 
-/* --- Legacy Gallery (unused) --- */
-.det-gallery-section {
-  padding: 0;
-  background: var(--ink);
-}
-
-.det-gallery {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  height: 520px;
-  gap: 3px;
-}
-
-.det-gallery-main {
-  overflow: hidden;
-}
-
-.det-gallery-thumbs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 3px;
-}
-
-.det-gallery-img {
-  width: 100%;
-  height: 100%;
-  transition: transform .5s ease;
-  overflow: hidden;
-}
-
-.det-gallery-main .det-gallery-img {
-  height: 100%;
-}
-
-.det-gallery-img:hover {
-  transform: scale(1.03);
-}
-
-.det-gallery-img--last {
-  position: relative;
-  overflow: hidden;
-}
-
-.det-gallery-more {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  background: rgba(0, 0, 0, .5);
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, .3);
-  padding: .5rem 1rem;
-  border-radius: 2rem;
-  font-family: var(--font-body);
-  font-size: .72rem;
-  font-weight: 500;
-  letter-spacing: .05em;
-  backdrop-filter: blur(8px);
-  cursor: pointer;
-  transition: background .2s;
-}
-
-.det-gallery-more:hover {
-  background: rgba(0, 0, 0, .7);
-}
-
 /* --- Overview --- */
 .det-overview {
   background: var(--sand-light);
@@ -1734,99 +1665,51 @@ footer a:hover {
   max-width: 900px;
 }
 
-.det-highlights-wrap {
-  position: sticky;
-  top: 6rem;
-}
-
-.det-highlights {
-  background: var(--white);
-  border-radius: 1rem;
-  border: 1px solid var(--stone);
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, .04);
-}
-
-.det-highlights-title {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: var(--ink);
-  margin-bottom: 1.25rem;
-}
-
-.det-highlights-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: .75rem;
-}
-
-.det-highlight-item {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  font-size: .88rem;
-  color: var(--ink-light);
-}
-
-.det-highlight-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--sea-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  flex-shrink: 0;
-}
-
 /* --- Amenities --- */
 .det-amenities {
   background: var(--white);
 }
 
-.det-amenity-grid {
+.det-amenity-cols {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.5rem 3rem;
   margin-top: 2.5rem;
 }
 
-.det-amenity-item {
+.det-amenity-cat {
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sea);
+  padding-bottom: .75rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--stone);
+}
+
+.det-amenity-list {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: .6rem;
-  padding: 1.5rem 1rem;
-  background: var(--sand-light);
-  border-radius: .75rem;
-  border: 1px solid transparent;
-  transition: border-color .25s;
+  gap: .65rem;
 }
 
-.det-amenity-item:hover {
-  border-color: var(--sea-light);
-}
-
-.det-amenity-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--sea-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-}
-
-.det-amenity-item span {
-  font-size: .78rem;
+.det-amenity-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: .95rem;
   color: var(--ink-light);
-  font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.4;
+}
+
+.det-amenity-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--sea);
+  font-weight: 700;
 }
 
 /* --- Pricing --- */
@@ -1863,20 +1746,6 @@ footer a:hover {
   border-color: var(--terracotta);
 }
 
-.det-price-badge-peak {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: .6rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  background: rgba(255, 255, 255, .2);
-  color: var(--white);
-  padding: .25rem .6rem;
-  border-radius: 1rem;
-}
-
 .det-price-season {
   font-family: var(--font-display);
   font-size: 1.35rem;
@@ -1906,11 +1775,6 @@ footer a:hover {
   margin-top: .6rem;
 }
 
-.det-price-from {
-  font-size: .72rem;
-  color: var(--ink-light);
-}
-
 .det-price-num {
   font-family: var(--font-display);
   font-size: 2.2rem;
@@ -1928,41 +1792,8 @@ footer a:hover {
   color: var(--ink-light);
 }
 
-.det-price-card--peak .det-price-cur,
-.det-price-card--peak .det-price-from {
+.det-price-card--peak .det-price-cur {
   color: rgba(255, 255, 255, .75);
-}
-
-.det-price-includes {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: .3rem;
-  margin-top: .85rem;
-}
-
-.det-price-includes li {
-  font-size: .78rem;
-  color: var(--ink-light);
-  padding-left: 1.1rem;
-  position: relative;
-}
-
-.det-price-includes li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--sea);
-  font-weight: 600;
-  font-size: .72rem;
-}
-
-.det-price-card--peak .det-price-includes li {
-  color: rgba(255, 255, 255, .85);
-}
-
-.det-price-card--peak .det-price-includes li::before {
-  color: rgba(255, 255, 255, .7);
 }
 
 /* --- Other apartments --- */
