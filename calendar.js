@@ -23,12 +23,12 @@
   ];
 
   const APARTMENTS = [
-    { id: 'a1', label: 'Apartmán 1 (A1)', prices: { low: 90, peak: 130, post: 90 } },
-    { id: 'a2', label: 'Oliva (A2)', prices: { low: 85, peak: 120, post: 85 } },
-    { id: 'a3', label: 'Tramontana (A3)', prices: { low: 95, peak: 140, post: 95 } },
-    { id: 'a4', label: 'Maestral (A4)', prices: { low: 90, peak: 130, post: 90 } },
-    { id: 'a5', label: 'Bura (A5)', prices: { low: 80, peak: 115, post: 80 } },
-    { id: 'a6', label: 'Šalvija (A6)', prices: { low: 100, peak: 150, post: 100 } },
+    { id: 'a1', label: 'Apartmán 1', prices: { low: 90, peak: 130, post: 90 } },
+    { id: 'a2', label: 'Apartmán 2', prices: { low: 85, peak: 120, post: 85 } },
+    { id: 'a3', label: 'Apartmán 3', prices: { low: 95, peak: 140, post: 95 } },
+    { id: 'a4', label: 'Apartmán 4', prices: { low: 90, peak: 130, post: 90 } },
+    { id: 'a5', label: 'Apartmán 5', prices: { low: 80, peak: 115, post: 80 } },
+    { id: 'a6', label: 'Apartmán 6', prices: { low: 100, peak: 150, post: 100 } },
   ];
 
   // Obsazené termíny — inkluzivní rozsahy [od, do] (ukázková data)
