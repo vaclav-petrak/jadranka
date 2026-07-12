@@ -475,7 +475,7 @@ section {
    Gallery (index.html)
    ============================================================ */
 .gallery-section {
-  background: var(--white);
+  background: var(--sand);
 }
 
 .gallery-grid {
@@ -1213,7 +1213,7 @@ section {
    Reviews
    ============================================================ */
 .reviews {
-  background: var(--sand);
+  background: var(--white);
 }
 
 .reviews-scroll {
@@ -1266,7 +1266,7 @@ section {
    Transport
    ============================================================ */
 .transport {
-  background: var(--white);
+  background: var(--sand);
 }
 
 .transport-grid {
