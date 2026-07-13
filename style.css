@@ -156,7 +156,7 @@ img {
   inset: 0;
   background:
     linear-gradient(180deg, rgba(10, 40, 50, .15) 0%, rgba(10, 40, 50, .05) 40%, rgba(10, 40, 50, .55) 100%),
-    url('photos/cover.png') center/cover no-repeat,
+    url('photos/cover.jpg') center/cover no-repeat,
     linear-gradient(135deg, #1a6b7a 0%, #2a8a9a 25%, #3da5b0 50%, #1a6b7a 75%, #0e4650 100%);
 }
 
