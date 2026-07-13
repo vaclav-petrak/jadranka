@@ -156,7 +156,6 @@
       <div class="cal-legend">
         <div class="cal-legend-item"><span class="cal-legend-dot cal-legend-dot--free"></span>Volné</div>
         <div class="cal-legend-item"><span class="cal-legend-dot cal-legend-dot--booked"></span>Obsazeno</div>
-        <div class="cal-legend-item"><span class="cal-legend-dot cal-legend-dot--out"></span>Mimo sezónu</div>
       </div>
       <div class="res-form-wrap" hidden>
         <form class="res-form" novalidate>
@@ -247,17 +246,20 @@
         const isoDate = toIso(new Date(SEASON.year, month, day));
         const cls = classify(isoDate);
         const dateCz = fromIso(isoDate).toLocaleDateString('cs-CZ', { day: 'numeric', month: 'long' });
+        const todayCls = isoDate === TODAY ? ' today' : '';
         if (cls === 'available') {
           const price = priceFor(state.apartmentId, isoDate);
+          const todayNote = isoDate === TODAY ? ' (dnes)' : '';
           cells.push(
-            `<button type="button" class="cal-day available${selectionClass(isoDate)}" data-date="${isoDate}" aria-label="${dateCz} — volné, ${price} € za noc">` +
+            `<button type="button" class="cal-day available${selectionClass(isoDate)}${todayCls}" data-date="${isoDate}" aria-label="${dateCz} — volné, ${price} € za noc${todayNote}">` +
             `<span class="cal-day-num">${day}</span><span class="cal-day-price">${price} €</span></button>`
           );
         } else {
           const stateLabels = { booked: 'obsazeno', out: 'mimo sezónu', past: 'nelze rezervovat' };
+          const priceCell = cls === 'past' ? '<span class="cal-day-price">–</span>' : '';
           cells.push(
-            `<button type="button" class="cal-day ${cls}" disabled aria-label="${dateCz} — ${stateLabels[cls]}">` +
-            `<span class="cal-day-num">${day}</span></button>`
+            `<button type="button" class="cal-day ${cls}${todayCls}" disabled aria-label="${dateCz} — ${stateLabels[cls]}">` +
+            `<span class="cal-day-num">${day}</span>${priceCell}</button>`
           );
         }
       }
