@@ -10,10 +10,32 @@
 </head>
 <body>
 
+<!-- SVG sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-car" viewBox="0 0 24 24" fill="none">
+    <path d="M4 12.5l1.7-4.6A2 2 0 017.6 6.5h8.8a2 2 0 011.9 1.4L20 12.5v4.5a.5.5 0 01-.5.5H18a.5.5 0 01-.5-.5V16h-11v1.5a.5.5 0 01-.5.5H4.5a.5.5 0 01-.5-.5v-4.5z" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M4 12.5h16" stroke-linecap="round"/>
+    <circle cx="7.5" cy="14.2" r="1"/>
+    <circle cx="16.5" cy="14.2" r="1"/>
+  </symbol>
+  <symbol id="icon-walk" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="4" r="2"/>
+    <path d="M12 6v8" stroke-linecap="round"/>
+    <path d="M7 9h10" stroke-linecap="round"/>
+    <path d="M12 14l-4 6" stroke-linecap="round"/>
+    <path d="M12 14l4 6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-boat" viewBox="0 0 24 24" fill="none">
+    <path d="M4 14h16l-1.6 3.2a2 2 0 01-1.8 1.1H7.4a2 2 0 01-1.8-1.1L4 14z" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 13.5V5l6 6.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 6L7 11.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
 <!-- ============================================================
      Navigation
      ============================================================ -->
-<nav class="nav" id="nav">
+<nav class="nav nav--solid" id="nav">
   <a href="index.html" class="nav-logo">Apartmány Jadranka</a>
   <div class="nav-links">
     <a href="index.html" class="nav-back-link">&#8592; Zpět na úvod</a>
@@ -21,22 +43,19 @@
 </nav>
 
 <!-- ============================================================
-     Hero
+     Header
      ============================================================ -->
-<section class="hero det-hero" style="min-height:40vh">
-  <div class="det-hero-bg" style="background: linear-gradient(180deg, rgba(10,30,50,.5) 0%, rgba(10,30,50,.4) 45%, rgba(10,30,50,.8) 100%), url('photos/galery/house-aerial.jpg') center/cover no-repeat"></div>
-
-  <div class="det-breadcrumb">
-    <a href="index.html">Apartmány Jadranka</a>
-    <span>/</span>
-    <span>Galerie</span>
+<header class="det-header">
+  <div class="section-inner">
+    <div class="det-breadcrumb">
+      <a href="index.html">Apartmány Jadranka</a>
+      <span>/</span>
+      <span>Galerie</span>
+    </div>
+    <h1 class="det-header-name"><em>Galerie</em></h1>
+    <p class="det-header-tagline">Prohlédněte si, jak to u nás vypadá — dům, okolí i místa, která snadno navštívíte.</p>
   </div>
-
-  <div class="det-hero-content">
-    <h1 class="det-hero-name">Galerie</h1>
-    <p class="det-hero-tagline">Prohlédněte si, jak to u nás vypadá — dům, okolí i místa, která snadno navštívíte.</p>
-  </div>
-</section>
+</header>
 
 <!-- ============================================================
      Gallery Content
@@ -60,12 +79,31 @@
         Šest apartmánů, prostorné terasy s výhledem na Jadran a bazén obklopený
         kamennými terasami — to vše jen pár kroků od vody.
       </p>
-      <div class="gal-photo-grid">
-        <div class="gal-photo">
-          <img src="photos/galery/house-aerial.jpg" alt="Dům z dronu — pohled na moře" loading="lazy">
+
+      <div class="gal-subtopic">
+        <h3 class="gal-subtopic-title">Dům z výšky a exteriér</h3>
+        <p class="gal-subtopic-desc">Rodinný dům stojí na samém konci vesnice Zubovići, přímo nad vlastní zátokou — šest apartmánů, zahrada s grilem a parkování hned u dveří.</p>
+        <div class="gal-meta">
+          <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-walk"/></svg> 1 min k moři</span>
         </div>
-        <div class="gal-photo"><img src="photos/galery/house-exterior-garden-bbq.jpg" alt="Exteriér domu — zahrada a venkovní gril" loading="lazy"></div>
-        <div class="gal-photo"><img src="photos/galery/house-exterior-sea-path.jpg" alt="Cesta mezi domem a mořem" loading="lazy"></div>
+        <div class="gal-photo-grid">
+          <div class="gal-photo"><img src="photos/galery/house-aerial.jpg" alt="Dům z dronu — pohled na moře" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/house-air-view.jpg" alt="Letecký pohled na dům a okolí" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/house-exterior-sea-path.jpg" alt="Cesta mezi domem a mořem" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/house-exterior-garden-bbq.jpg" alt="Exteriér domu — zahrada a venkovní gril" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/location-sign-zubovici.jpg" alt="Cedule s názvem lokality Zubovići" loading="lazy"></div>
+        </div>
+      </div>
+
+      <div class="gal-subtopic">
+        <h3 class="gal-subtopic-title">Terasy a večerní posezení</h3>
+        <p class="gal-subtopic-desc">Prostorné terasy s výhledem na Jadran patří k nejoblíbenějším místům — od ranní kávy až po večerní promítání pod hvězdami.</p>
+        <div class="gal-photo-grid">
+          <div class="gal-photo"><img src="photos/galery/terrace-dining-sunset.jpg" alt="Večeře na terase při západu slunce" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/terrace-pergola-dining.jpg" alt="Terasa s pergolou a jídelním stolem" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/sunset-terrace.jpg" alt="Terasa při západu slunce nad mořem" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/outdoor-cinema-night.jpg" alt="Venkovní kino pod širým nebem" loading="lazy"></div>
+        </div>
       </div>
     </div>
 
@@ -73,13 +111,34 @@
     <div class="gal-topic" id="vybaveni">
       <h2 class="gal-topic-title">Bazén a pláž</h2>
       <p class="gal-topic-desc">
-        K domu patří bazén s lehátky a slunečníky, ideální pro odpočinek během horkých letních dnů.
-        Soukromá pláž je přístupná přímo z pozemku — stačí sejít pár schodů a jste u křišťálově čistého moře.
+        K domu patří vyhřívaný bazén s protiproudem a vířivka, ideální pro odpočinek během
+        horkých letních dnů. Soukromá pláž s molem je přístupná přímo z pozemku — stačí sejít
+        pár schodů a jste u křišťálově čistého moře.
       </p>
-      <div class="gal-photo-grid">
-        <div class="gal-photo"><img src="photos/galery/dock-swim-turquoise.jpg" alt="Molo a koupání v tyrkysovém moři" loading="lazy"></div>
-        <div class="gal-photo"><img src="photos/galery/dock-swim-cove-stairs.jpg" alt="Schody k soukromé pláži a moři" loading="lazy"></div>
-        <div class="gal-photo"><img src="photos/galery/terrace-waterfront-boats.jpg" alt="Terasa u vody s lehátky a čluny" loading="lazy"></div>
+
+      <div class="gal-subtopic">
+        <h3 class="gal-subtopic-title">Bazén a vířivka</h3>
+        <p class="gal-subtopic-desc">Vyhřívaný bazén s protiproudem a vířivka jsou v provozu po celou sezonu — s lehátky a slunečníky jen kousek od vody.</p>
+        <div class="gal-photo-grid">
+          <div class="gal-photo"><img src="photos/galery/terrace-jacuzzi-aerial-dusk.jpg" alt="Vířivka a terasa z výšky za soumraku" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/bay-dusk-lights.jpg" alt="Zátoka s večerním osvětlením" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/bay-dusk-lights-2.jpg" alt="Večerní pohled na zátoku a světla" loading="lazy"></div>
+        </div>
+      </div>
+
+      <div class="gal-subtopic">
+        <h3 class="gal-subtopic-title">Molo a soukromá pláž</h3>
+        <p class="gal-subtopic-desc">Soukromé molo s bójkami pro vaši loď či skútr a schody přímo do křišťálového moře — vše jen pár kroků od apartmánů.</p>
+        <div class="gal-meta">
+          <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-walk"/></svg> 1 min pěšky</span>
+        </div>
+        <div class="gal-photo-grid">
+          <div class="gal-photo"><img src="photos/galery/dock-swim-turquoise.jpg" alt="Molo a koupání v tyrkysovém moři" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/dock-swim-cove-stairs.jpg" alt="Schody k soukromé pláži a moři" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/terrace-waterfront-boats.jpg" alt="Terasa u vody s lehátky a čluny" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/dock-fishing-goldenhour.jpg" alt="Rybaření z mola za zlatavého světla" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/boat-cove-beach.jpg" alt="Člun v zátoce u pláže" loading="lazy"></div>
+        </div>
       </div>
     </div>
 
@@ -91,10 +150,16 @@
         po písčité pláže s pozvolným vstupem do moře. Většina je dosažitelná pěšky nebo krátkým
         přejezdem autem. Voda je průzračná a moře čisté po celou sezonu.
       </p>
+      <div class="gal-meta">
+        <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-walk"/></svg> od 3 min pěšky</span>
+        <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-car"/></svg> do 15 min autem</span>
+      </div>
       <div class="gal-photo-grid">
         <div class="gal-photo"><img src="photos/galery/beach-pebble-lagoon.jpg" alt="Oblázková pláž s křišťálovou lagunou" loading="lazy"></div>
         <div class="gal-photo"><img src="photos/galery/beach-cove-aerial-view.jpg" alt="Zátoka z výšky s dramatickými mraky" loading="lazy"></div>
         <div class="gal-photo"><img src="photos/galery/beach-umbrellas.jpg" alt="Písečná pláž se slunečníky" loading="lazy"></div>
+        <div class="gal-photo"><img src="photos/galery/beach-family.jpg" alt="Rodinná pláž s mělkým vstupem do moře" loading="lazy"></div>
+        <div class="gal-photo"><img src="photos/galery/beach-cove-crowded.jpg" alt="Oblíbená zátoka v hlavní sezoně" loading="lazy"></div>
       </div>
     </div>
 
@@ -106,10 +171,30 @@
         historické město Pag s krajkovým dědictvím a slavné solanky. Unikátní atmosféra,
         pažský sýr, jehněčí pod pekou a 2 700 hodin slunce ročně.
       </p>
-      <div class="gal-photo-grid">
-        <div class="gal-photo"><img src="photos/galary-trips/life_on_mars/life-on-mars-landscape.jpg" alt="Měsíční krajina ostrova Pag" loading="lazy"></div>
-        <div class="gal-photo"><img src="photos/galary-trips/life_on_mars/life-on-mars-landscape-2.jpg" alt="Skalnaté pobřeží měsíční krajiny" loading="lazy"></div>
-        <div class="gal-photo"><img src="photos/galery/bay-panorama.jpg" alt="Panorama zátoky z kopce" loading="lazy"></div>
+
+      <div class="gal-subtopic">
+        <h3 class="gal-subtopic-title">Měsíční krajina</h3>
+        <p class="gal-subtopic-desc">Sever ostrova připomíná měsíční povrch — bílé kamení, vítr a trasa slavného trailového závodu Life on Mars.</p>
+        <div class="gal-meta">
+          <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-car"/></svg> 15 min autem</span>
+        </div>
+        <div class="gal-photo-grid">
+          <div class="gal-photo"><img src="photos/galary-trips/life_on_mars/life-on-mars-landscape.jpg" alt="Měsíční krajina ostrova Pag" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galary-trips/life_on_mars/life-on-mars-landscape-2.jpg" alt="Skalnaté pobřeží měsíční krajiny" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galary-trips/life_on_mars/life-on-mars-trail-sign.jpg" alt="Značení trailu Life on Mars" loading="lazy"></div>
+        </div>
+      </div>
+
+      <div class="gal-subtopic">
+        <h3 class="gal-subtopic-title">Zátoky a výhledy</h3>
+        <p class="gal-subtopic-desc">Vyhlídky nad zátokami nabízejí jedny z nejhezčích panoramat na Pagu — nejkrásnější jsou za soumraku.</p>
+        <div class="gal-meta">
+          <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-car"/></svg> 10 min autem</span>
+        </div>
+        <div class="gal-photo-grid">
+          <div class="gal-photo"><img src="photos/galery/bay-panorama.jpg" alt="Panorama zátoky z kopce" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galery/bay-panorama-2.jpg" alt="Široké panorama pobřeží" loading="lazy"></div>
+        </div>
       </div>
     </div>
 
@@ -121,10 +206,44 @@
         navštívíte národní park Paklenica nebo se vydáte na výlet do Zadaru.
         Celý ostrov Pag projdete autem za 40 minut — každý den můžete objevit něco nového.
       </p>
-      <div class="gal-photo-grid">
-        <div class="gal-photo"><img src="photos/galary-trips/bertniaca/bertniaca-cove.jpg" alt="Zátoka Bertniaca s oblázkovou pláží" loading="lazy"></div>
-        <div class="gal-photo"><img src="photos/galary-trips/rucica/rucica-beach.jpg" alt="Pláž Ručica s plážovým barem" loading="lazy"></div>
-        <div class="gal-photo"><img src="photos/galary-trips/stogaj/stogaj-rock-spire-sunset.jpg" alt="Skalní věž Stogaj při západu slunce" loading="lazy"></div>
+
+      <div class="gal-subtopic">
+        <h3 class="gal-subtopic-title">Zátoka Bertniaca</h3>
+        <p class="gal-subtopic-desc">Klidná oblázková zátoka s průzračnou vodou, kterou nejlépe objevíte autem nebo krátkou plavbou lodí.</p>
+        <div class="gal-meta">
+          <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-car"/></svg> 25 min autem</span>
+          <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-boat"/></svg> 15 min lodí</span>
+        </div>
+        <div class="gal-photo-grid">
+          <div class="gal-photo"><img src="photos/galary-trips/bertniaca/bertniaca-cove.jpg" alt="Zátoka Bertniaca s oblázkovou pláží" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galary-trips/bertniaca/bertniaca-cove-aerial.jpg" alt="Zátoka Bertniaca z výšky" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galary-trips/bertniaca/bertniaca-cove-2.jpg" alt="Zátoka Bertniaca — pohled od moře" loading="lazy"></div>
+        </div>
+      </div>
+
+      <div class="gal-subtopic">
+        <h3 class="gal-subtopic-title">Pláž Ručica</h3>
+        <p class="gal-subtopic-desc">Známá pláž ukrytá pod útesy poloostrova, s plážovým barem a výhledem na otevřené moře.</p>
+        <div class="gal-meta">
+          <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-car"/></svg> 30 min autem</span>
+          <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-walk"/></svg> 15 min pěšky</span>
+        </div>
+        <div class="gal-photo-grid">
+          <div class="gal-photo"><img src="photos/galary-trips/rucica/rucica-beach.jpg" alt="Pláž Ručica s plážovým barem" loading="lazy"></div>
+        </div>
+      </div>
+
+      <div class="gal-subtopic">
+        <h3 class="gal-subtopic-title">Skalní věž Stogaj</h3>
+        <p class="gal-subtopic-desc">Osamělá skalní věž nad mořem, oblíbený cíl vyhlídkových procházek za západem slunce.</p>
+        <div class="gal-meta">
+          <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-car"/></svg> 20 min autem</span>
+          <span class="gal-meta-item"><svg class="gal-meta-icon"><use href="#icon-walk"/></svg> 30 min pěšky</span>
+        </div>
+        <div class="gal-photo-grid">
+          <div class="gal-photo"><img src="photos/galary-trips/stogaj/stogaj-rock-spire.jpg" alt="Skalní věž Stogaj" loading="lazy"></div>
+          <div class="gal-photo"><img src="photos/galary-trips/stogaj/stogaj-rock-spire-sunset.jpg" alt="Skalní věž Stogaj při západu slunce" loading="lazy"></div>
+        </div>
       </div>
     </div>
 

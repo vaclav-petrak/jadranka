@@ -710,6 +710,55 @@ section {
   scroll-margin-top: 7rem;
 }
 
+.gal-subtopic {
+  margin-bottom: 2.75rem;
+}
+
+.gal-subtopic-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--sea);
+  line-height: 1.2;
+  margin-bottom: .4rem;
+}
+
+.gal-subtopic-desc {
+  font-size: .9rem;
+  font-weight: 300;
+  color: var(--ink-light);
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 1rem;
+}
+
+.gal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.gal-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.gal-meta-icon {
+  width: 15px;
+  height: 15px;
+  stroke: var(--terracotta);
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
 .gal-topic-title {
   font-family: var(--font-display);
   font-size: 2rem;
