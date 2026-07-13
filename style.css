@@ -363,6 +363,22 @@ section {
   background: var(--sand);
 }
 
+.apt-intro {
+  max-width: 760px;
+  margin-top: 1.5rem;
+}
+
+.apt-intro p {
+  font-size: .98rem;
+  font-weight: 300;
+  color: var(--ink-light);
+  line-height: 1.85;
+}
+
+.apt-intro p + p {
+  margin-top: 1.15rem;
+}
+
 .apt-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
