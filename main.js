@@ -1,8 +1,33 @@
 // Sticky nav style on scroll
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 50);
-});
+function initStickyNav() {
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+}
+initStickyNav();
+
+// Shared partials (nav + footer) live in nav.html / footer.html and are
+// injected here so they're defined in one place. The <nav>/<footer> shells
+// stay in each page as empty placeholders (so #nav and CSS work at parse time);
+// only their inner markup is fetched. Requires serving over HTTP, not file://.
+const navMount = document.querySelector('nav[data-nav]');
+if (navMount) {
+  fetch('nav.html')
+    .then((r) => r.text())
+    .then((html) => {
+      navMount.innerHTML = html.replaceAll('__CTA__', navMount.dataset.cta || 'index.html#kalendar');
+      bindSmoothScroll(navMount); // so an injected in-page "#kalendar" CTA smooth-scrolls
+    });
+}
+
+const footerMount = document.getElementById('site-footer');
+if (footerMount) {
+  fetch('footer.html')
+    .then((r) => r.text())
+    .then((html) => { footerMount.innerHTML = html; });
+}
 
 // Fade-in on scroll via IntersectionObserver
 const observer = new IntersectionObserver((entries) => {
@@ -17,15 +42,18 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
 
 // Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach((a) => {
-  a.addEventListener('click', (e) => {
-    const href = a.getAttribute('href');
-    if (href === '#') return;
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+function bindSmoothScroll(root) {
+  root.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   });
-});
+}
+bindSmoothScroll(document);
 
 // Lightbox (gallery pages only — no-ops where #lightbox is absent)
 const lb = document.getElementById('lightbox');
