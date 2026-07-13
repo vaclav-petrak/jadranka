@@ -677,12 +677,7 @@ section {
   display: flex;
   gap: .75rem;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
-  position: sticky;
-  top: 4.5rem;
-  z-index: 50;
-  background: var(--sand-light);
-  padding: 1rem 0;
+  justify-content: center;
 }
 
 .gal-tab {
@@ -705,8 +700,16 @@ section {
   border-color: var(--sea);
 }
 
+.gal-section {
+  background: var(--white);
+  scroll-margin-top: 4.5rem;
+}
+
+.gal-section--alt {
+  background: var(--sand-light);
+}
+
 .gal-topic {
-  margin-bottom: 4rem;
   scroll-margin-top: 7rem;
 }
 
@@ -1739,7 +1742,6 @@ footer a:hover {
   .service-block { grid-template-columns: 1fr; gap: .75rem; padding: 2rem 0; }
   .gal-photo { border-radius: 0; }
   .gal-photo-placeholder { border-radius: 0; }
-  .gal-tabs { top: 0; }
   .apt-grid { grid-template-columns: 1fr; }
   .cal-preview { padding: 1.5rem; }
   .cal-body { grid-template-columns: 1fr; }
