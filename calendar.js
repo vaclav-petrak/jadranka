@@ -24,11 +24,11 @@
 
   const APARTMENTS = [
     { id: 'a1', label: 'Apartmán 1', prices: { low: 90, peak: 130, post: 90 } },
-    { id: 'a2', label: 'Apartmán 2', prices: { low: 85, peak: 120, post: 85 } },
-    { id: 'a3', label: 'Apartmán 3', prices: { low: 95, peak: 140, post: 95 } },
+    { id: 'a2', label: 'Apartmán 2', prices: { low: 90, peak: 130, post: 90 } },
+    { id: 'a3', label: 'Apartmán 3', prices: { low: 120, peak: 180, post: 120 } },
     { id: 'a4', label: 'Apartmán 4', prices: { low: 90, peak: 130, post: 90 } },
-    { id: 'a5', label: 'Apartmán 5', prices: { low: 80, peak: 115, post: 80 } },
-    { id: 'a6', label: 'Apartmán 6', prices: { low: 100, peak: 150, post: 100 } },
+    { id: 'a5', label: 'Apartmán 5', prices: { low: 90, peak: 130, post: 90 } },
+    { id: 'a6', label: 'Apartmán 6', prices: { low: 70, peak: 90, post: 70 } },
   ];
 
   // Obsazené termíny — inkluzivní rozsahy [od, do] (ukázková data)
