@@ -174,7 +174,7 @@
             <span class="res-field-error">Zadejte platné telefonní číslo.</span>
           </label>
           <label class="res-field res-full">Text vašeho dotazu…
-            <textarea name="message" rows="4" placeholder="P"></textarea>
+            <textarea name="message" rows="4" placeholder="Text vašeho dotazu"></textarea>
           </label>
           <div class="res-actions res-full">
             <button type="submit" class="btn btn-primary">Odeslat poptávku</button>
