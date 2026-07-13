@@ -30,6 +30,9 @@
     <path d="M12 13.5V5l6 6.5" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M12 6L7 11.5" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none">
+    <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
 </svg>
 
 <!-- ============================================================
@@ -280,7 +283,10 @@
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" aria-label="Zavřít">&times;</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Předchozí fotka"><svg><use href="#icon-arrow-right"/></svg></button>
   <img src="" alt="">
+  <button class="lightbox-nav lightbox-next" aria-label="Další fotka"><svg><use href="#icon-arrow-right"/></svg></button>
+  <div class="lightbox-counter"></div>
 </div>
 
 <script src="main.js"></script>

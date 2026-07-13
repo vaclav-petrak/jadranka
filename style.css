@@ -879,6 +879,61 @@ section {
   background: rgba(255,255,255,.3);
 }
 
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: rgba(255,255,255,.15);
+  color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, opacity .2s;
+  z-index: 1;
+}
+
+.lightbox-nav svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.lightbox-nav:not(:disabled):hover {
+  background: rgba(255,255,255,.3);
+}
+
+.lightbox-nav:disabled {
+  opacity: .25;
+  cursor: default;
+}
+
+.lightbox-prev {
+  left: 1rem;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.lightbox-next {
+  right: 1rem;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,.85);
+  font-size: .85rem;
+  letter-spacing: .02em;
+  cursor: default;
+}
+
 /* ============================================================
    Calendar (apartman-1.html)
    ============================================================ */
