@@ -176,6 +176,11 @@
           <label class="res-field res-full">Text vašeho dotazu…
             <textarea name="message" rows="4" placeholder="Text vašeho dotazu"></textarea>
           </label>
+          <label class="res-consent res-full">
+            <input type="checkbox" name="consent">
+            <span>Souhlasím s <a href="podminky.html" target="_blank" rel="noopener">podmínkami ubytování</a>.</span>
+            <span class="res-field-error">Bez souhlasu s podmínkami nelze poptávku odeslat.</span>
+          </label>
           <div class="res-actions res-full">
             <button type="submit" class="btn btn-primary">Odeslat poptávku</button>
           </div>
@@ -415,6 +420,10 @@
         input.closest('.res-field').classList.toggle('invalid', !ok);
         if (!ok && !firstInvalid) firstInvalid = input;
       }
+      const consent = form.elements.consent;
+      const consentOk = consent.checked;
+      consent.closest('.res-consent').classList.toggle('invalid', !consentOk);
+      if (!consentOk && !firstInvalid) firstInvalid = consent;
       if (firstInvalid) {
         firstInvalid.focus();
         return;
@@ -430,6 +439,7 @@
         email: form.elements.email.value.trim(),
         phone: form.elements.phone.value.trim(),
         message: form.elements.message.value.trim(),
+        consent: form.elements.consent.checked,
       };
       const res = await submitReservation(payload);
       if (res.ok) {
@@ -441,7 +451,7 @@
 
     // Chybové zvýraznění zmizí, jakmile uživatel pole opraví
     form.addEventListener('input', e => {
-      const field = e.target.closest('.res-field');
+      const field = e.target.closest('.res-field, .res-consent');
       if (field) field.classList.remove('invalid');
     });
 
