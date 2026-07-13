@@ -28,7 +28,7 @@
     { id: 'a3', label: 'Apartmán 3', prices: { low: 120, peak: 180, post: 120 } },
     { id: 'a4', label: 'Apartmán 4', prices: { low: 90, peak: 130, post: 90 } },
     { id: 'a5', label: 'Apartmán 5', prices: { low: 90, peak: 130, post: 90 } },
-    { id: 'a6', label: 'Apartmán 6', prices: { low: 70, peak: 90, post: 70 } },
+    { id: 'a6', label: 'Studio 6', prices: { low: 70, peak: 90, post: 70 } },
   ];
 
   // Obsazené termíny — inkluzivní rozsahy [od, do] (ukázková data)
