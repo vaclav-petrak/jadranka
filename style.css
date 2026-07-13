@@ -475,7 +475,122 @@ section {
    Gallery (index.html)
    ============================================================ */
 .gallery-section {
-  background: var(--sand);
+  background: var(--white);
+}
+
+/* --- Featured images --- */
+.featured {
+  background: var(--white);
+}
+
+.feat-carousel {
+  position: relative;
+  margin-top: 2.5rem;
+}
+
+.feat-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.feat-track::-webkit-scrollbar {
+  display: none;
+}
+
+.feat-track:focus {
+  outline: none;
+}
+
+.feat-track:focus-visible {
+  outline: 2px solid var(--sea);
+  outline-offset: 4px;
+}
+
+.feat-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  margin: 0;
+}
+
+.feat-slide .gal-photo,
+.feat-slide .gal-photo-placeholder {
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+}
+
+.feat-slide figcaption {
+  margin-top: .9rem;
+  font-size: .9rem;
+  color: var(--ink-light);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.feat-arrow {
+  position: absolute;
+  top: calc(50% - 2.5rem); /* optically centered on the image, above caption + dots */
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--stone);
+  background: var(--white);
+  color: var(--sea);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity .25s, border-color .25s;
+  z-index: 2;
+}
+
+.feat-arrow svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.feat-arrow--prev {
+  left: 1rem;
+  transform: scaleX(-1);
+}
+
+.feat-arrow--next {
+  right: 1rem;
+}
+
+.feat-arrow:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.feat-arrow:not(:disabled):hover {
+  border-color: var(--sea);
+}
+
+.feat-dots {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: 1rem;
+}
+
+.feat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--stone);
+  cursor: pointer;
+  transition: background .25s;
+}
+
+.feat-dot.active {
+  background: var(--sea);
 }
 
 .gallery-grid {
@@ -700,6 +815,11 @@ section {
    ============================================================ */
 .calendar-section {
   background: var(--white);
+}
+
+/* index.html variant — keeps the sand/white alternation there */
+.calendar-section--sand {
+  background: var(--sand);
 }
 
 .cal-preview {
@@ -1299,6 +1419,42 @@ section {
   line-height: 1.7;
 }
 
+/* --- Services --- */
+.services {
+  background: var(--sand);
+}
+
+.service-blocks {
+  margin-top: 2.5rem;
+}
+
+.service-block {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem 3rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--stone);
+}
+
+.service-block h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.service-text p {
+  font-size: .95rem;
+  font-weight: 300;
+  color: var(--ink-light);
+  line-height: 1.8;
+}
+
+.service-text p + p {
+  margin-top: .75rem;
+}
+
 /* ============================================================
    CTA Section
    ============================================================ */
@@ -1459,6 +1615,9 @@ footer a:hover {
   .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .gallery-grid { grid-template-columns: 1fr; }
   .gal-photo-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .feat-slide .gal-photo, .feat-slide .gal-photo-placeholder { aspect-ratio: 4 / 3; border-radius: .75rem; }
+  .feat-arrow { width: 36px; height: 36px; }
+  .service-block { grid-template-columns: 1fr; gap: .75rem; padding: 2rem 0; }
   .gal-photo { border-radius: 0; }
   .gal-photo-placeholder { border-radius: 0; }
   .gal-tabs { top: 0; }
