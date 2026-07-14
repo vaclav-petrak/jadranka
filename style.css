@@ -1995,6 +1995,23 @@ footer a:hover {
   .det-header-stats { gap: 1.75rem; }
   .det-breadcrumb { font-size: .6rem; }
 
+  /* Lightbox: move nav arrows below the image instead of overlapping it */
+  .lightbox img { max-height: 74vh; }
+  .lightbox-nav {
+    top: auto;
+    bottom: 1rem;
+  }
+  .lightbox-prev {
+    left: calc(50% - 88px);
+    right: auto;
+    transform: scaleX(-1);
+  }
+  .lightbox-next {
+    right: calc(50% - 88px);
+    left: auto;
+    transform: none;
+  }
+  .lightbox-counter { bottom: 1.6rem; }
 }
 
 /* ============================================================
