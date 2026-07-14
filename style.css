@@ -1746,6 +1746,24 @@ section {
   line-height: 1.7;
 }
 
+.transport-card a {
+  color: var(--sea);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.transport-card a:hover {
+  color: var(--terracotta);
+}
+
+.transport-maplink {
+  display: inline-block;
+  margin-top: .9rem;
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+}
+
 /* --- Services --- */
 .services {
   background: var(--sand);
@@ -1849,6 +1867,14 @@ footer {
   line-height: 1.8;
 }
 
+.footer-addr-lines {
+  margin-bottom: .9rem;
+}
+
+.footer-address .footer-email {
+  margin-top: .9rem;
+}
+
 footer h4 {
   font-size: .65rem;
   font-weight: 600;
@@ -1942,7 +1968,7 @@ footer a:hover {
    Responsive
    ============================================================ */
 @media (max-width: 768px) {
-  .nav-links { display: none; }
+  .nav-links a:not(.nav-cta) { display: none; }
   .hero-content { padding: 0 1.5rem 4rem; }
   section { padding: 4rem 1.5rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
