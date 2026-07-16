@@ -2474,6 +2474,66 @@ footer a:hover {
   background: var(--white);
 }
 
+.det-amenity-subhead {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+}
+
+.det-amenity-subhead + .det-amenity-highlights,
+.det-amenity-subhead + .det-amenity-cols {
+  margin-top: 0;
+}
+
+.det-amenity-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.det-amenity-picto {
+  background: var(--white);
+  border: 1px solid var(--stone);
+  border-radius: 1rem;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.det-amenity-picto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+}
+
+.det-amenity-picto-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto .9rem;
+  color: var(--terracotta);
+  fill: currentColor;
+}
+
+.det-amenity-picto-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: .4rem;
+}
+
+.det-amenity-picto-text {
+  font-size: .88rem;
+  font-weight: 300;
+  color: var(--ink-light);
+  line-height: 1.6;
+}
+
 .det-amenity-cols {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
