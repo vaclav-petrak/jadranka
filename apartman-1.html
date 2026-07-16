@@ -319,10 +319,21 @@
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" aria-label="Zavřít">&times;</button>
-  <button class="lightbox-nav lightbox-prev" aria-label="Předchozí fotka"><svg><use href="#icon-arrow-right"/></svg></button>
-  <img src="" alt="">
-  <button class="lightbox-nav lightbox-next" aria-label="Další fotka"><svg><use href="#icon-arrow-right"/></svg></button>
-  <div class="lightbox-counter"></div>
+  <div class="lightbox-header">
+    <h3 class="lightbox-title"></h3>
+    <div class="lightbox-meta"></div>
+  </div>
+  <div class="lightbox-stage">
+    <button class="lightbox-nav lightbox-prev" aria-label="Předchozí fotka"><svg><use href="#icon-arrow-right"/></svg></button>
+    <img src="" alt="">
+    <div class="lightbox-video"></div>
+    <button class="lightbox-nav lightbox-next" aria-label="Další fotka"><svg><use href="#icon-arrow-right"/></svg></button>
+  </div>
+  <div class="lightbox-info">
+    <p class="lightbox-desc"></p>
+    <div class="lightbox-counter"></div>
+  </div>
+  <div class="lightbox-film" aria-label="Náhledy fotek"></div>
 </div>
 
 <script src="main.js"></script>
