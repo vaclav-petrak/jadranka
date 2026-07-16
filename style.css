@@ -1929,35 +1929,83 @@ section {
   background: var(--sand);
 }
 
-.service-blocks {
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
   margin-top: 2.5rem;
 }
 
-.service-block {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 1.5rem 3rem;
-  padding: 2.5rem 0;
-  border-top: 1px solid var(--stone);
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--stone);
+  border-radius: 1rem;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  transition: transform .3s, box-shadow .3s;
 }
 
-.service-block h3 {
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+}
+
+.service-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto .9rem;
+  color: var(--terracotta);
+  fill: currentColor;
+}
+
+.service-icon--stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service-card-title {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: var(--ink);
   line-height: 1.2;
+  margin-bottom: .4rem;
 }
 
-.service-text p {
-  font-size: .95rem;
+.service-card-text {
+  font-size: .88rem;
   font-weight: 300;
   color: var(--ink-light);
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
-.service-text p + p {
-  margin-top: .75rem;
+.service-card-text sup {
+  color: var(--terracotta);
+  font-weight: 600;
+  font-size: .7em;
+  padding-left: 1px;
+}
+
+.service-footnotes {
+  margin-top: 2rem;
+  max-width: 700px;
+  font-size: .8rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+}
+
+.service-footnotes p + p {
+  margin-top: .5rem;
+}
+
+.service-footnotes sup {
+  color: var(--terracotta);
+  font-weight: 600;
+  padding-right: 2px;
 }
 
 /* ============================================================
@@ -2137,7 +2185,8 @@ footer a:hover {
   .gal-photo-grid { grid-template-columns: 1fr; gap: 0.75rem; }
   .feat-slide .gal-photo, .feat-slide .gal-photo-placeholder { aspect-ratio: 4 / 3; border-radius: .75rem; }
   .feat-arrow { width: 36px; height: 36px; }
-  .service-block { grid-template-columns: 1fr; gap: .75rem; padding: 2rem 0; }
+  .service-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .75rem; }
+  .service-card { padding: 1.5rem 1rem; }
   .gal-photo { border-radius: 0; }
   .gal-photo-placeholder { border-radius: 0; }
   .apt-grid { grid-template-columns: 1fr; }
