@@ -1816,6 +1816,7 @@ section {
   gap: 1.5rem;
   margin-top: 2.5rem;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 1rem;
@@ -2197,6 +2198,8 @@ footer a:hover {
   .cal-day { min-height: 2.4rem; padding: .3rem 0; font-size: .75rem; }
   .cal-day-price { font-size: .52rem; }
   .res-form { grid-template-columns: 1fr; }
+  .reviews-scroll { scroll-padding-left: 1.5rem; }
+  .review-card { min-width: 80vw; max-width: 80vw; padding: 1.5rem; }
 
   /* Detail page responsive */
   .det-overview-grid { grid-template-columns: 1fr; }
